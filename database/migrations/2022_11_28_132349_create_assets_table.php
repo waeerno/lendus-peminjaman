@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('assets', function (Blueprint $table) {
             $table->id();
+            $table->string('unit_id');
+            $table->string('nama');
+            $table->integer('jumlah');
+            $table->string('status')->comment('aktif, nonaktif');
+            $table->string('jenis')->comment('barang,jasa');
+            $table->string('kategori_id');
             $table->timestamps();
         });
     }
