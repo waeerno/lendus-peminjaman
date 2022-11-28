@@ -4,8 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\Traits\HasRoles;
 
 class Admin extends Model
 {
-    use HasFactory;
+    use HasFactory, HasRoles;
+
+    protected $fillable = [
+        'email',
+        'nama',
+        'password',
+        'unit_id',
+        'no_wa',
+    ];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
 }
