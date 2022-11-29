@@ -12,4 +12,9 @@ class Kategori extends Model
     protected $fillable = [
         'nama',
     ];
+
+    public function asset()
+    {
+        return $this->belongsTo(Asset::class);
+    }
 }

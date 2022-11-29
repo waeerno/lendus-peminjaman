@@ -14,4 +14,19 @@ class Unit extends Model
         'pimpinan',
         'nip'
     ];
+
+    public function peminjaman()
+    {
+        return $this->belongsTo(Peminjaman::class);
+    }
+
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class);
+    }
+
+    public function asset()
+    {
+        return $this->belongsTo(Asset::class);
+    }
 }

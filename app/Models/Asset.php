@@ -17,4 +17,19 @@ class Asset extends Model
         'jenis',
         'kategori'
     ];
+
+    public function peminjaman()
+    {
+        return $this->belongsTo(Peminjaman::class);
+    }
+
+    public function unit()
+    {
+        return $this->hasOne(Unit::class);
+    }
+
+    public function kategori()
+    {
+        return $this->hasOne(Kategori::class);
+    }
 }

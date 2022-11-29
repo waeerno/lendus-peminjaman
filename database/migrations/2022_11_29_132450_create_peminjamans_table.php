@@ -15,16 +15,16 @@ return new class extends Migration
     {
         Schema::create('peminjamans', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
-            $table->string('asset_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('asset_id')->constrained();
+            $table->foreignId('admin_id')->constrained();
             $table->date('tanggal_pengajuan');
             $table->date('mulai_pakai');
             $table->integer('durasi');
             $table->text('surat');
             $table->string('catatan');
             $table->integer('keputusan');
-            $table->string('admin_id');
-            $table->$table->timestamps();
+            $table->timestamps();
         });
     }
 

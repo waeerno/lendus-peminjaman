@@ -22,4 +22,14 @@ class Admin extends Model
         'password',
         'remember_token',
     ];
+
+    public function peminjaman()
+    {
+        return $this->belongsTo(Peminjaman::class);
+    }
+
+    public function unit()
+    {
+        return $this->hasOne(Unit::class);
+    }
 }

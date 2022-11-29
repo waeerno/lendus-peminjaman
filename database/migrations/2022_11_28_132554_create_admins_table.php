@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('email');
             $table->string('password');
-            $table->string('unit_id');
+            $table->foreignId('unit_id')->constrained();
             $table->string('no_wa');
             $table->timestamps();
         });

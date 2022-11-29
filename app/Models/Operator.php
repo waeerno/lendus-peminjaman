@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
 class Operator extends Model
 {
-    use HasFactory, HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     protected $fillable = [
         'nama',
@@ -20,4 +22,6 @@ class Operator extends Model
         'password',
         'remember_token',
     ];
+
+    protected $guard_name = 'web';
 }
