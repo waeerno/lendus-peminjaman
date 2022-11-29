@@ -14,7 +14,10 @@ class UnitController extends Controller
      */
     public function index()
     {
-        return view('pages.unit.index');
+
+        return view('pages.unit.index', [
+            'data' => Unit::get(),
+        ]);
     }
 
     /**
@@ -24,7 +27,7 @@ class UnitController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.unit.create');
     }
 
     /**
@@ -35,7 +38,7 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
