@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AssetRequest;
 use App\Models\Asset;
+use App\Models\Kategori;
 use App\Models\Unit;
 use Exception;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class AssetController extends Controller
     public function index()
     {
         return view('pages.asset.index', [
-            'data' => Asset::with('unit')->orderBy('id', 'desc')->get(),
+            'data' => Asset::with('unit', 'kategori')->orderBy('id', 'desc')->get(),
         ]);
     }
 
@@ -31,6 +32,7 @@ class AssetController extends Controller
     {
         return view('pages.asset.create', [
             'unit' => Unit::get(),
+            'kategori' => Kategori::get(),
         ]);
     }
 
@@ -62,6 +64,7 @@ class AssetController extends Controller
         return view('pages.asset.edit', [
             'data' => $asset,
             'unit' => Unit::get(),
+            'kategori' => Kategori::get(),
         ]);
     }
 

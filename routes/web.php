@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssetController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingController;
@@ -28,6 +29,7 @@ Route::get('/', DashboardController::class)->name('dashboard');
 Route::middleware('auth')->name('master.')->group(function () {
     Route::resource('unit', UnitController::class)->except('show');
     Route::resource('kategori', KategoriController::class)->except('show');
+    Route::resource('asset', AssetController::class)->except('show');
 });
 
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');

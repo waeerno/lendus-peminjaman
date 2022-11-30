@@ -60,7 +60,8 @@
                                     class="nav-link <?php echo e(request()->routeIs('master.kategori.*') ? 'text-primary' : ''); ?>">Kategori</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">Asset</a>
+                                <a href="<?php echo e(route('master.asset.index')); ?>"
+                                    class="nav-link <?php echo e(request()->routeIs('master.asset.*') ? 'text-primary' : ''); ?>">Asset</a>
                             </li>
                         </ul>
                     </div>
