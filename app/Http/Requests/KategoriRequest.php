@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class KategoriRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class KategoriRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,23 @@ class KategoriRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nama' =>  ['required', 'string', Rule::unique('units')->ignore($this->unit)],
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'nama' => 'Nama Kategori',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            '*.required' => ':attribute harus diisi',
+            '*.string' => ':attribute harus berupa teks',
+            '*.unique' => ':attribute sudah ada, silahkan masukkan data lain'
         ];
     }
 }

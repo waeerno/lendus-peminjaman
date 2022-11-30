@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\KategoriRequest;
 use App\Models\Kategori;
+use Exception;
 use Illuminate\Http\Request;
 
 class KategoriController extends Controller
@@ -26,7 +28,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.kategori.create');
     }
 
     /**
@@ -35,20 +37,15 @@ class KategoriController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(KategoriRequest $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Kategori  $kategori
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Kategori $kategori)
-    {
-        //
+        try {
+            $data = $request->all();
+            Kategori::create($data);
+            return to_route('master.kategori.index')->with('success', 'Data berhasil ditambahkan');
+        } catch (Exception $error) {
+            return to_route('master.kategori.index')->with('error', $error);
+        }
     }
 
     /**
@@ -59,7 +56,9 @@ class KategoriController extends Controller
      */
     public function edit(Kategori $kategori)
     {
-        //
+        return view('pages.kategori.edit', [
+            'data' => $kategori,
+        ]);
     }
 
     /**
@@ -69,9 +68,15 @@ class KategoriController extends Controller
      * @param  \App\Models\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kategori $kategori)
+    public function update(KategoriRequest $request, Kategori $kategori)
     {
-        //
+        try {
+            $data = $request->all();
+            $kategori->update($data);
+            return to_route('master.kategori.index')->with('success', 'Data berhasil diubah');
+        } catch (Exception $error) {
+            return to_route('master.kategori.index')->with('error', $error);
+        }
     }
 
     /**
@@ -82,6 +87,11 @@ class KategoriController extends Controller
      */
     public function destroy(Kategori $kategori)
     {
-        //
+        try {
+            $kategori->delete();
+            return to_route('master.kategori.index')->with('success', 'Data berhasil dihapus');
+        } catch (Exception $error) {
+            return to_route('master.kategori.index')->with('error', $error);
+        }
     }
 }
