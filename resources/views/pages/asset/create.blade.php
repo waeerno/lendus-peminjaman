@@ -19,16 +19,16 @@
 
                     <div class="col-md-4">
                         <label for="fullnameInput" class="form-label">Unit</label>
-                        <select class="form-control @error('unit') is-invalid @enderror" name="unit" id="unit"
-                            name="unit" required>
+                        <select class="form-control @error('unit_id') is-invalid @enderror" id="unit_id" name="unit_id"
+                            required>
                             <option selected disabled>--- Pilih Unit ---</option>
                             @foreach ($unit as $item)
-                            <option value="{{ $item->id }}" @selected(old('unit')==$item->id)>{{ $item->nama }}
+                            <option value="{{ $item->id }}" @selected(old('unit_id')==$item->id)>{{ $item->nama }}
                             </option>
                             @endforeach
                         </select>
 
-                        @error('unit')
+                        @error('unit_id')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -51,7 +51,8 @@
                     <div class="col-md-2">
                         <label for="fullnameInput" class="form-label">jumlah</label>
                         <input type="number" name="jumlah" id="jumlah"
-                            class="form-control @error('jumlah') is-invalid @enderror" value="{{ old('jumlah') }}">
+                            class="form-control @error('jumlah') is-invalid @enderror" value="{{ old('jumlah') }}"
+                            min="1">
 
                         @error('jumlah')
                         <div class="invalid-feedback">
@@ -80,26 +81,25 @@
                     <div class="col-md-4">
                         <label for="fullnameInput" class="form-label">kategori</label>
 
-                        <select class="form-control @error('kategori') is-invalid @enderror" name="kategori"
-                            id="kategori" name="kategori" required>
+                        <select class="form-control @error('kategori_id') is-invalid @enderror" name="kategori_id"
+                            id="kategori_id" name="kategori_id" required>
                             <option selected disabled>--- Pilih Unit ---</option>
                             @foreach ($kategori as $item)
-                            <option value="{{ $item->id }}" @selected(old('kategori')==$item->id)>{{ $item->nama }}
+                            <option value="{{ $item->id }}" @selected(old('kategori_id')==$item->id)>{{ $item->nama }}
                             </option>
                             @endforeach
                         </select>
 
-                        @error('kategori')
+                        @error('kategori_id')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                         @enderror
                     </div>
 
-                    <div class="col-md-4">
+                    {{-- <div class="col-md-4">
                         <label for="fullnameInput" class="form-label">foto</label>
 
-                        <!-- File Input -->
                         <input type="file" class="form-control  @error('foto') is-invalid @enderror" name="foto"
                             value="{{ old('foto') }}">
 
@@ -108,15 +108,24 @@
                             {{ $message }}
                         </div>
                         @enderror
-                    </div>
+                    </div> --}}
 
                     <div class="col-md-12">
-                        <label for="fullnameInput" class="form-label">Status</label>
+                        <label class="form-label">Status</label>
 
                         <div class="form-check form-switch form-switch-lg" dir="ltr">
-                            <input type="checkbox" class="form-check-input" id="is_active" @checked(old('is_active', 1))
-                                name="is_active" onchange="changeStatus()">
-                            <label class="form-check-label" for="is_active" id="label_status">Aktif</label>
+                            <input type="checkbox" class="form-check-input" id="is_active" @checked(old('status', 1))
+                                name="status" onchange="changeStatus()">
+                            <div class="row">
+                                <div>
+                                    <label class="form-check-label" for="status" id="label_status">Aktif</label>
+                                </div>
+                                <div>
+                                    <p id="deskripsi"> Asset ini akan muncul dan bisa untuk dipinjam oleh pengguna</p>
+                                </div>
+                            </div>
+
+
                         </div>
 
                         @error('status')
@@ -128,7 +137,7 @@
 
                     <div class="col-12">
                         <div class="grid g-3 float-end">
-                            <a href="{{ route('master.unit.index') }}" class="btn btn-light">Kembali</a>
+                            <a href="{{ route('master.asset.index') }}" class="btn btn-light">Kembali</a>
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </div>
@@ -142,4 +151,21 @@
 @endsection
 @section('script')
 <script src="{{ URL::asset('/assets/js/app.min.js') }}"></script>
+
+<script>
+    changeStatus = () => {
+        const item = document.getElementById('is_active');
+        const label = document.getElementById('label_status');
+        const deskripsi = document.getElementById('deskripsi');
+
+        if (item.checked) {
+            label.textContent = 'Aktif'
+            deskripsi.textContent = 'Asset ini akan muncul dan bisa untuk dipinjam oleh pengguna'
+        } else {
+            label.textContent = 'Nonaktif'
+            deskripsi.textContent = 'Asset ini tidak akan muncul dan tidak bisa untuk dipinjam oleh pengguna'
+        }
+    }
+
+</script>
 @endsection

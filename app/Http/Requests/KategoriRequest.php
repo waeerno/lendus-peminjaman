@@ -25,7 +25,7 @@ class KategoriRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama' =>  ['required', 'string', Rule::unique('units')->ignore($this->unit)],
+            'nama' =>  ['required', 'string', Rule::unique('kategoris')->ignore($this->unit)],
         ];
     }
 

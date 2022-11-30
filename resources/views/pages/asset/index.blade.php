@@ -43,7 +43,7 @@
                 <td>{{ $item->jumlah }}</td>
                 <td>{{ $item->status }}</td>
                 <td>{{ $item->jenis }}</td>
-                <td>{{ $item->kategori }}</td>
+                <td>{{ $item->kategori->nama }}</td>
                 <td>
                     <img src="{{ asset('storage/'.$item->foto) }}" alt="" width="100px">
                 </td>

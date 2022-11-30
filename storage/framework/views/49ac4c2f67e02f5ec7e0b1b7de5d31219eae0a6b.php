@@ -43,7 +43,7 @@
                 <td><?php echo e($item->jumlah); ?></td>
                 <td><?php echo e($item->status); ?></td>
                 <td><?php echo e($item->jenis); ?></td>
-                <td><?php echo e($item->kategori); ?></td>
+                <td><?php echo e($item->kategori->nama); ?></td>
                 <td>
                     <img src="<?php echo e(asset('storage/'.$item->foto)); ?>" alt="" width="100px">
                 </td>

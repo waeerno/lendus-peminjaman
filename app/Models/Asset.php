@@ -15,7 +15,7 @@ class Asset extends Model
         'jumlah',
         'status',
         'jenis',
-        'kategori'
+        'kategori_id'
     ];
 
     public function peminjaman()
@@ -25,11 +25,11 @@ class Asset extends Model
 
     public function unit()
     {
-        return $this->hasOne(Unit::class);
+        return $this->belongsTo(Unit::class);
     }
 
     public function kategori()
     {
-        return $this->hasOne(Kategori::class);
+        return $this->belongsTo(Kategori::class);
     }
 }

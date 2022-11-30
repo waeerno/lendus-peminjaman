@@ -44,13 +44,14 @@ class AssetController extends Controller
      */
     public function store(AssetRequest $request)
     {
-        try {
-            $data = $request->all();
-            Asset::create($data);
-            return to_route('master.asset.index')->with('success', 'Data berhasil ditambahkan');
-        } catch (Exception $error) {
-            return to_route('master.asset.index')->with('error', $error);
-        }
+        // dd($request->all());
+        $data = $request->all();
+        Asset::create($data);
+        return to_route('master.asset.index')->with('success', 'Data berhasil ditambahkan');
+        // try {
+        // } catch (Exception $error) {
+        //     return to_route('master.asset.index')->with('error', $error);
+        // }
     }
 
     /**
