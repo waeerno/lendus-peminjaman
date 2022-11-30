@@ -3,7 +3,7 @@
 @section('content')
 @component('components.breadcrumb')
 @slot('li_1') Data @endslot
-@slot('title') Tambah Unit @endslot
+@slot('title') Edit Unit @endslot
 @endcomponent
 <div class="col-12">
     <div class="card">
@@ -13,14 +13,15 @@
 
         <div class="card-body">
             <div class="live-preview">
-                <form action="{{ route('master.unit.store') }}" method="POST" class="row g-3">
+                <form action="{{ route('master.unit.update', $data->id) }}" method="post" class="row g-3">
                     @csrf
+                    @method('PUT')
 
                     <div class="col-md-12">
                         <label for="fullnameInput" class="form-label">Nama</label>
-                        <input type="text" name="nama" id="nama"
+                        <input type="text" value="{{ old('nama') ?? $data->nama }}" name="nama" id="nama"
                             class="form-control @error('nama') is-invalid @enderror"
-                            placeholder="Pusat Teknologi Informasi dan Pangkalan Data" value="{{ old('nama') }}">
+                            placeholder="Pusat Teknologi Informasi dan Pangkalan Data">
 
                         @error('nama')
                         <div class="invalid-feedback">
@@ -31,9 +32,9 @@
                     </div>
                     <div class="col-md-6">
                         <label for="inputEmail4" class="form-label">Nama Pimpinan</label>
-                        <input type="text" name="pimpinan" id="pimpinan"
-                            class="form-control @error('pimpinan') is-invalid @enderror"
-                            placeholder="Idria Maita S.Kom., M.Sc" value="{{ old('pimpinan')}}">
+                        <input type="text" value="{{ old('pimpinan') ?? $data->pimpinan }}" name="pimpinan"
+                            id="pimpinan" class="form-control @error('pimpinan') is-invalid @enderror"
+                            placeholder="Idria Maita S.Kom., M.Sc">
 
                         @error('pimpinan')
                         <div class="invalid-feedback">
@@ -43,8 +44,8 @@
                     </div>
                     <div class="col-md-6">
                         <label for="inputPassword4" class="form-label">NIP Pimpinan</label>
-                        <input type="number" name="nip" id="nip" class="form-control @error('nip') is-invalid @enderror"
-                            placeholder="197905132007102005" value="{{ old('nip')}}">
+                        <input type="number" value="{{ old('nip') ?? $data->nip }}" name="nip" id="nip"
+                            class="form-control @error('nip') is-invalid @enderror" placeholder="197905132007102005">
 
                         @error('nip')
                         <div class="invalid-feedback">

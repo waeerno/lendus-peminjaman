@@ -56,7 +56,8 @@
                                     class="nav-link {{ request()->routeIs('master.unit.*') ? 'text-primary' : '' }}">Unit</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">Kategori</a>
+                                <a href="{{ route('master.kategori.index') }}"
+                                    class="nav-link {{ request()->routeIs('master.kategori.*') ? 'text-primary' : '' }}">Kategori</a>
                             </li>
                             <li class="nav-item">
                                 <a href="" class="nav-link">Asset</a>

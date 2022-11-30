@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UnitRequest;
 use App\Models\Unit;
+use Exception;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
 
 class UnitController extends Controller
 {
@@ -16,7 +19,7 @@ class UnitController extends Controller
     {
 
         return view('pages.unit.index', [
-            'data' => Unit::get(),
+            'data' => Unit::orderBy('id', 'desc')->get(),
         ]);
     }
 
@@ -36,20 +39,15 @@ class UnitController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UnitRequest $request)
     {
-        dd($request->all());
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Unit  $unit
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Unit $unit)
-    {
-        //
+        try {
+            $data = $request->all();
+            Unit::create($data);
+            return to_route('master.unit.index')->with('success', 'Data berhasil ditambahkan');
+        } catch (Exception $error) {
+            return to_route('master.unit.index')->with('error', $error);
+        }
     }
 
     /**
@@ -60,7 +58,9 @@ class UnitController extends Controller
      */
     public function edit(Unit $unit)
     {
-        //
+        return view('pages.unit.edit', [
+            'data' => $unit
+        ]);
     }
 
     /**
@@ -70,9 +70,15 @@ class UnitController extends Controller
      * @param  \App\Models\Unit  $unit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Unit $unit)
+    public function update(UnitRequest $request, Unit $unit)
     {
-        //
+        try {
+            $data = $request->all();
+            $unit->update($data);
+            return to_route('master.unit.index')->with('success', 'Data berhasil diubah');
+        } catch (Exception $error) {
+            return to_route('master.unit.index')->with('error', $error);
+        }
     }
 
     /**
@@ -83,6 +89,11 @@ class UnitController extends Controller
      */
     public function destroy(Unit $unit)
     {
-        //
+        try {
+            $unit->delete();
+            return to_route('master.unit.index')->with('success', 'Data berhasil dihapus');
+        } catch (Exception $error) {
+            return to_route('master.unit.index')->with('error', $error);
+        }
     }
 }

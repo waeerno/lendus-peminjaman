@@ -31,6 +31,7 @@
             </div>
             <!-- container-fluid -->
         </div>
+
         <!-- End Page-content -->
         <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>

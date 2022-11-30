@@ -2,7 +2,7 @@
 <?php $__env->startSection('content'); ?>
 <?php $__env->startComponent('components.breadcrumb'); ?>
 <?php $__env->slot('li_1'); ?> Data <?php $__env->endSlot(); ?>
-<?php $__env->slot('title'); ?> Tambah Unit <?php $__env->endSlot(); ?>
+<?php $__env->slot('title'); ?> Edit Unit <?php $__env->endSlot(); ?>
 <?php echo $__env->renderComponent(); ?>
 <div class="col-12">
     <div class="card">
@@ -12,12 +12,13 @@
 
         <div class="card-body">
             <div class="live-preview">
-                <form action="<?php echo e(route('master.unit.store')); ?>" method="POST" class="row g-3">
+                <form action="<?php echo e(route('master.unit.update', $data->id)); ?>" method="post" class="row g-3">
                     <?php echo csrf_field(); ?>
+                    <?php echo method_field('PUT'); ?>
 
                     <div class="col-md-12">
                         <label for="fullnameInput" class="form-label">Nama</label>
-                        <input type="text" name="nama" id="nama"
+                        <input type="text" value="<?php echo e(old('nama') ?? $data->nama); ?>" name="nama" id="nama"
                             class="form-control <?php $__errorArgs = ['nama'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -26,7 +27,7 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
-                            placeholder="Pusat Teknologi Informasi dan Pangkalan Data" value="<?php echo e(old('nama')); ?>">
+                            placeholder="Pusat Teknologi Informasi dan Pangkalan Data">
 
                         <?php $__errorArgs = ['nama'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -45,8 +46,8 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                     <div class="col-md-6">
                         <label for="inputEmail4" class="form-label">Nama Pimpinan</label>
-                        <input type="text" name="pimpinan" id="pimpinan"
-                            class="form-control <?php $__errorArgs = ['pimpinan'];
+                        <input type="text" value="<?php echo e(old('pimpinan') ?? $data->pimpinan); ?>" name="pimpinan"
+                            id="pimpinan" class="form-control <?php $__errorArgs = ['pimpinan'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -54,7 +55,7 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
-                            placeholder="Idria Maita S.Kom., M.Sc" value="<?php echo e(old('pimpinan')); ?>">
+                            placeholder="Idria Maita S.Kom., M.Sc">
 
                         <?php $__errorArgs = ['pimpinan'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -72,15 +73,15 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                     <div class="col-md-6">
                         <label for="inputPassword4" class="form-label">NIP Pimpinan</label>
-                        <input type="number" name="nip" id="nip" class="form-control <?php $__errorArgs = ['nip'];
+                        <input type="number" value="<?php echo e(old('nip') ?? $data->nip); ?>" name="nip" id="nip"
+                            class="form-control <?php $__errorArgs = ['nip'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>"
-                            placeholder="197905132007102005" value="<?php echo e(old('nip')); ?>">
+unset($__errorArgs, $__bag); ?>" placeholder="197905132007102005">
 
                         <?php $__errorArgs = ['nip'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -114,4 +115,4 @@ unset($__errorArgs, $__bag); ?>
 <script src="<?php echo e(URL::asset('/assets/js/app.min.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\lendus-velzon\resources\views/pages/unit/create.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\lendus-velzon\resources\views/pages/unit/edit.blade.php ENDPATH**/ ?>

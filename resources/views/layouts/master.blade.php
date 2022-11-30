@@ -31,6 +31,7 @@
             </div>
             <!-- container-fluid -->
         </div>
+
         <!-- End Page-content -->
         @include('layouts.footer')
     </div>

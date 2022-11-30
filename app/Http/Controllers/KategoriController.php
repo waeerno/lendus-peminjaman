@@ -14,7 +14,9 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.kategori.index', [
+            'data' => Kategori::orderBy('id', 'desc')->get(),
+        ]);
     }
 
     /**

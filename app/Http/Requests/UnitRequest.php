@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UnitRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class UnitRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,28 @@ class UnitRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nama' =>  ['required', 'string', Rule::unique('units')->ignore($this->unit)],
+            'pimpinan' => ['required', 'string', Rule::unique('units')->ignore($this->unit)],
+            'nip' => ['required', 'numeric', Rule::unique('units')->ignore($this->unit)],
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'nama' => 'Nama Unit',
+            'pimpinan' => 'Nama Pimpinan',
+            'nip' => 'Nomor Induk Pegawai (NIP)'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            '*.required' => ':attribute harus diisi',
+            '*.numeric' => ':attribute harus berupa angka',
+            '*.string' => ':attribute harus berupa teks',
+            '*.unique' => ':attribute sudah ada, silahkan masukkan data lain'
         ];
     }
 }

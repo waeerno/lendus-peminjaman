@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,7 @@ Route::get('/', DashboardController::class)->name('dashboard');
 
 Route::middleware('auth')->name('master.')->group(function () {
     Route::resource('unit', UnitController::class)->except('show');
+    Route::resource('kategori', KategoriController::class)->except('show');
 });
 
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');
