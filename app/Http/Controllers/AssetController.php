@@ -44,14 +44,24 @@ class AssetController extends Controller
      */
     public function store(AssetRequest $request)
     {
-        // dd($request->all());
-        $data = $request->all();
-        Asset::create($data);
+
+        $data = new Asset;
+
+        $data->unit_id = $request->unit_id;
+        $data->nama = $request->nama;
+        $data->jumlah = $request->jumlah;
+        $data->jenis =  $request->jenis;
+        $data->kategori_id = $request->kategori_id;
+        // togle on off
+        $request->has('status') ? $data['status'] = 1 : $data['status'] = 0;
+        // foto asset
+        if ($request->file('foto')) {
+            $file = $request->file('foto')->store('AssetFoto', 'public');
+            $data->foto = $file;
+        }
+
+        $data->save();
         return to_route('master.asset.index')->with('success', 'Data berhasil ditambahkan');
-        // try {
-        // } catch (Exception $error) {
-        //     return to_route('master.asset.index')->with('error', $error);
-        // }
     }
 
     /**
@@ -78,13 +88,18 @@ class AssetController extends Controller
      */
     public function update(AssetRequest $request, Asset $asset)
     {
-        try {
-            $data = $request->all();
-            $asset->update($data);
-            return to_route('master.asset.index')->with('success', 'Data berhasil diubah');
-        } catch (Exception $error) {
-            return to_route('master.asset.index')->with('error', $error);
+        $data = $request->all();
+        // togle on off
+        $request->has('status') ? $data['status'] = 1 : $data['status'] = 0;
+
+        if ($request->file('foto')) {
+            unlink(public_path('storage/') . $asset->foto);
+            $file = $request->file('foto')->store('AssetFoto', 'public');
+            $data['foto'] = $file;
         }
+
+        $asset->update($data);
+        return to_route('master.asset.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -96,6 +111,9 @@ class AssetController extends Controller
     public function destroy(Asset $asset)
     {
         try {
+            if ($asset->foto) {
+                unlink(public_path('storage/') . $asset->foto);
+            }
             $asset->delete();
             return to_route('master.asset.index')->with('success', 'Data berhasil dihapus');
         } catch (Exception $error) {

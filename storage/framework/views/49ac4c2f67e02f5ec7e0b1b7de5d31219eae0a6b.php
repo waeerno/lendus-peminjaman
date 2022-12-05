@@ -1,6 +1,7 @@
-<?php $__env->startSection('title'); ?> <?php echo app('translator')->get('translation.starter'); ?> <?php $__env->stopSection(); ?>
+<?php $__env->startSection('title'); ?> Asset <?php $__env->stopSection(); ?>
 <?php $__env->startSection('css'); ?>
 <link href="<?php echo e(URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')); ?>" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"">
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 <?php $__env->startComponent('components.breadcrumb'); ?>
@@ -10,75 +11,93 @@
 
 <?php echo $__env->make('components.alerts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-<div class="table-responsive">
-    <div class="float-end pb-4">
-        <a href="<?php echo e(route('master.asset.create')); ?>" type="button"
-            class="btn btn-primary btn-label waves-effect waves-light">
-            <i class="ri-add-fill label-icon align-middle fs-16 me-2"></i> Tambah
-        </a>
-    </div>
-    <table class="table align-middle mb-0">
-        <thead class="table-light">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Jumlah</th>
-                <th scope="col">Status</th>
-                <th scope="col">Jenis</th>
-                <th scope="col">Kategori</th>
-                <th scope="col">Foto</th>
-                <th scope="col" class="text-end">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php $__empty_1 = true; $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-            <tr>
-                <th scope="row"><?php echo e($loop->index +1); ?></th>
-                <td>
-                    <h6 class="text-primary mb-0"><?php echo e($item->nama); ?></h6>
-                    <span class="text-muted">
-                        <?php echo e($item->unit->nama); ?>
+<div class=" table-responsive">
+<div class="float-end pb-4">
+    <a href="<?php echo e(route('master.asset.create')); ?>" type="button"
+        class="btn btn-primary btn-label waves-effect waves-light">
+        <i class="ri-add-fill label-icon align-middle fs-16 me-2"></i> Tambah
+    </a>
+</div>
+<table class="table align-middle mb-0">
+    <thead class="table-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Jumlah</th>
+            <th scope="col">Status</th>
+            <th scope="col">Jenis</th>
+            <th scope="col">Kategori</th>
+            <th scope="col">Foto</th>
+            <th scope="col" class="text-end">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php $__empty_1 = true; $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+        <tr>
+            <th scope="row"><?php echo e($loop->index +1); ?></th>
+            <td>
+                <h6 class="text-primary mb-0"><?php echo e($item->nama); ?></h6>
+                <span class="text-muted">
+                    <?php echo e($item->unit->nama); ?>
 
-                    </span>
-                <td><?php echo e($item->jumlah); ?></td>
-                <td><?php echo e($item->status); ?></td>
-                <td><?php echo e($item->jenis); ?></td>
-                <td><?php echo e($item->kategori->nama); ?></td>
-                <td>
-                    <img src="<?php echo e(asset('storage/'.$item->foto)); ?>" alt="" width="100px">
-                </td>
-                <td class="text-end">
-                    <a href="<?php echo e(route('master.asset.edit', $item->id)); ?>" class="btn btn-sm btn-info"
-                        data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data">
-                        <i class="ri-edit-2-line"></i>
-                    </a>
+                </span>
+            <td><?php echo e($item->jumlah); ?></td>
+            <td>
+                <?php switch($item->status):
+                case (1): ?>
+                <span class="badge rounded-pill badge-outline-primary">Tersedia</span>
+                <?php break; ?>
+                <?php case (0): ?>
+                <span class="badge rounded-pill badge-outline-danger">Tidak Tersedia</span>
+                <?php break; ?>
+                <?php default: ?>
+                <span class="badge rounded-pill badge-outline-default">Belum ditentukan</span>
+                <?php endswitch; ?>
+            </td>
+            <td><?php echo e($item->jenis); ?></td>
+            <td><?php echo e($item->kategori->nama); ?></td>
+            <td>
+                <?php if($item->foto): ?>
+                <a class="btn btn-soft-info btn-info" data-fancybox data-type="pdf"
+                    href="<?php echo e(asset('storage/'.$item->foto)); ?>"><?php echo e(Str::limit($item->foto, 20, '...')); ?></a>
+                <?php else: ?>
+                <small class="text-danger">Kosong</small>
+                <?php endif; ?>
+            </td>
+            <td class="text-end">
+                <a href="<?php echo e(route('master.asset.edit', $item->id)); ?>" class="btn btn-sm btn-info"
+                    data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data">
+                    <i class="ri-edit-2-line"></i>
+                </a>
 
-                    <a href="#" class="btn btn-sm btn-danger" onclick="confirmDelete(<?php echo e($item->id); ?>)"
-                        data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data">
-                        <form action="<?php echo e(route('master.asset.destroy', $item->id)); ?>" method="POST"
-                            id="delete-<?php echo e($item->id); ?>">
-                            <?php echo csrf_field(); ?>
-                            <?php echo method_field('DELETE'); ?>
-                        </form>
-                        <i class="ri-delete-bin-2-line"></i>
-                    </a>
-                </td>
-            </tr>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-            <tr>
-                <td colspan="9" class="text-center"><span class="text-danger">Belum Ada Data</span></td>
-            </tr>
-            <?php endif; ?>
+                <a href="#" class="btn btn-sm btn-danger" onclick="confirmDelete(<?php echo e($item->id); ?>)"
+                    data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data">
+                    <form action="<?php echo e(route('master.asset.destroy', $item->id)); ?>" method="POST"
+                        id="delete-<?php echo e($item->id); ?>">
+                        <?php echo csrf_field(); ?>
+                        <?php echo method_field('DELETE'); ?>
+                    </form>
+                    <i class="ri-delete-bin-2-line"></i>
+                </a>
+            </td>
+        </tr>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+        <tr>
+            <td colspan="9" class="text-center"><span class="text-danger">Belum Ada Data</span></td>
+        </tr>
+        <?php endif; ?>
 
-        </tbody>
-    </table>
-    <!-- end table -->
+    </tbody>
+</table>
+<!-- end table -->
 </div>
 <!-- end table responsive -->
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('script'); ?>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+</script>
 
 <script src="<?php echo e(URL::asset('/assets/libs/sweetalert2/sweetalert2.min.js')); ?>"></script>
 
@@ -162,7 +181,6 @@
 
 });
 </script>
-
 <script src="<?php echo e(URL::asset('/assets/js/app.min.js')); ?>"></script>
 
 <?php $__env->stopSection(); ?>

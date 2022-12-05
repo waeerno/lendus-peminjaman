@@ -2,7 +2,7 @@
 <?php $__env->startSection('content'); ?>
 <?php $__env->startComponent('components.breadcrumb'); ?>
 <?php $__env->slot('li_1'); ?> Data <?php $__env->endSlot(); ?>
-<?php $__env->slot('title'); ?> Tambah Asset <?php $__env->endSlot(); ?>
+<?php $__env->slot('title'); ?> Edit Asset <?php $__env->endSlot(); ?>
 <?php echo $__env->renderComponent(); ?>
 <div class="col-12">
     <div class="card">
@@ -12,10 +12,10 @@
 
         <div class="card-body">
             <div class="live-preview">
-                <form action="<?php echo e(route('master.asset.store')); ?>" method="POST" class="row g-3"
+                <form action="<?php echo e(route('master.asset.update',$data->id)); ?>" method="post" class="row g-3"
                     enctype="multipart/form-data">
                     <?php echo csrf_field(); ?>
-
+                    <?php echo method_field('PUT'); ?>
                     <div class="col-md-4">
                         <label for="fullnameInput" class="form-label">Unit</label>
                         <select class="form-control <?php $__errorArgs = ['unit_id'];
@@ -27,9 +27,10 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" id="unit_id" name="unit_id"
                             required>
-                            <option selected disabled>--- Pilih Unit ---</option>
+                            <option>-- Pilih Unit --</option>
                             <?php $__currentLoopData = $unit; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value="<?php echo e($item->id); ?>" <?php if(old('unit_id')==$item->id): echo 'selected'; endif; ?>><?php echo e($item->nama); ?>
+                            <option value="<?php echo e($item->id); ?>" <?php if(old('unit_id')==$item->id || $item->id ==
+                                $data->unit_id ): echo 'selected'; endif; ?>><?php echo e($item->nama); ?>
 
                             </option>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -61,7 +62,7 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" placeholder="Laboratorium PTIPD"
-                            value="<?php echo e(old('nama')); ?>">
+                            value="<?php echo e(old('nama') ?? $data->nama); ?>">
 
                         <?php $__errorArgs = ['nama'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -88,8 +89,8 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('jumlah')); ?>"
-                            min="1">
+unset($__errorArgs, $__bag); ?>"
+                            value="<?php echo e(old('jumlah') ?? $data->jumlah); ?>" min="1">
 
                         <?php $__errorArgs = ['jumlah'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -118,9 +119,9 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" name="jenis" id="jenis"
                             name="jenis" required>
-                            <option selected disabled>--- Pilih Jenis ---</option>
-                            <option value="Barang" <?php if(old('jenis')): echo 'selected'; endif; ?>>Barang</option>
-                            <option value="Jasa/Layanan" <?php if(old('jenis')): echo 'selected'; endif; ?>>Jasa/Layanan</option>
+                            <option disabled>--- Pilih Jenis ---</option>
+                            <option value="Barang" <?php if(old('jenis')==$data->jenis): echo 'selected'; endif; ?>>Barang</option>
+                            <option value="Jasa/Layanan" <?php if(old('jenis')==$data->jenis): echo 'selected'; endif; ?>>Jasa/Layanan</option>
                         </select>
 
                         <?php $__errorArgs = ['jenis'];
@@ -152,7 +153,8 @@ unset($__errorArgs, $__bag); ?>" name="kategori_id"
                             id="kategori_id" name="kategori_id" required>
                             <option selected disabled>--- Pilih Unit ---</option>
                             <?php $__currentLoopData = $kategori; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value="<?php echo e($item->id); ?>" <?php if(old('kategori_id')==$item->id): echo 'selected'; endif; ?>><?php echo e($item->nama); ?>
+                            <option value="<?php echo e($item->id); ?>" <?php if(old('kategori_id')==$item->id ||
+                                $data->kategori_id): echo 'selected'; endif; ?>><?php echo e($item->nama); ?>
 
                             </option>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -205,8 +207,9 @@ unset($__errorArgs, $__bag); ?>
                         <label class="form-label">Status</label>
 
                         <div class="form-check form-switch form-switch-lg" dir="ltr">
-                            <input type="checkbox" class="form-check-input" id="is_active" <?php if(old('status', 1)): echo 'checked'; endif; ?>
-                                name="status" onchange="changeStatus()">
+                            <input type="checkbox" class="form-check-input" id="is_active" <?php if(old('status')): echo 'checked'; endif; ?>
+                                <?php if($data->status): echo 'checked'; endif; ?>
+                            name="status" onchange="changeStatus()">
                             <div class="row">
                                 <div>
                                     <label class="form-check-label" for="status" id="label_status">Aktif</label>
@@ -215,8 +218,6 @@ unset($__errorArgs, $__bag); ?>
                                     <p id="deskripsi"> Asset ini akan muncul dan bisa untuk dipinjam oleh pengguna</p>
                                 </div>
                             </div>
-
-
                         </div>
 
                         <?php $__errorArgs = ['status'];
@@ -269,4 +270,4 @@ unset($__errorArgs, $__bag); ?>
 </script>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\lendus-velzon\resources\views/pages/asset/create.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\lendus-velzon\resources\views/pages/asset/edit.blade.php ENDPATH**/ ?>

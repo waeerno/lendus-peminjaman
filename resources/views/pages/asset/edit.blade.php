@@ -3,7 +3,7 @@
 @section('content')
 @component('components.breadcrumb')
 @slot('li_1') Data @endslot
-@slot('title') Tambah Asset @endslot
+@slot('title') Edit Asset @endslot
 @endcomponent
 <div class="col-12">
     <div class="card">
@@ -13,17 +13,18 @@
 
         <div class="card-body">
             <div class="live-preview">
-                <form action="{{ route('master.asset.store') }}" method="POST" class="row g-3"
+                <form action="{{ route('master.asset.update',$data->id) }}" method="post" class="row g-3"
                     enctype="multipart/form-data">
                     @csrf
-
+                    @method('PUT')
                     <div class="col-md-4">
                         <label for="fullnameInput" class="form-label">Unit</label>
                         <select class="form-control @error('unit_id') is-invalid @enderror" id="unit_id" name="unit_id"
                             required>
-                            <option selected disabled>--- Pilih Unit ---</option>
+                            <option>-- Pilih Unit --</option>
                             @foreach ($unit as $item)
-                            <option value="{{ $item->id }}" @selected(old('unit_id')==$item->id)>{{ $item->nama }}
+                            <option value="{{ $item->id }}" @selected(old('unit_id')==$item->id || $item->id ==
+                                $data->unit_id )>{{$item->nama }}
                             </option>
                             @endforeach
                         </select>
@@ -39,7 +40,7 @@
                         <label for="fullnameInput" class="form-label">Nama</label>
                         <input type="text" name="nama" id="nama"
                             class="form-control @error('nama') is-invalid @enderror" placeholder="Laboratorium PTIPD"
-                            value="{{ old('nama') }}">
+                            value="{{ old('nama') ?? $data->nama }}">
 
                         @error('nama')
                         <div class="invalid-feedback">
@@ -51,8 +52,8 @@
                     <div class="col-md-2">
                         <label for="fullnameInput" class="form-label">jumlah</label>
                         <input type="number" name="jumlah" id="jumlah"
-                            class="form-control @error('jumlah') is-invalid @enderror" value="{{ old('jumlah') }}"
-                            min="1">
+                            class="form-control @error('jumlah') is-invalid @enderror"
+                            value="{{ old('jumlah') ?? $data->jumlah }}" min="1">
 
                         @error('jumlah')
                         <div class="invalid-feedback">
@@ -66,9 +67,9 @@
 
                         <select class="form-control @error('jenis') is-invalid @enderror" name="jenis" id="jenis"
                             name="jenis" required>
-                            <option selected disabled>--- Pilih Jenis ---</option>
-                            <option value="Barang" @selected(old('jenis'))>Barang</option>
-                            <option value="Jasa/Layanan" @selected(old('jenis'))>Jasa/Layanan</option>
+                            <option disabled>--- Pilih Jenis ---</option>
+                            <option value="Barang" @selected(old('jenis')==$data->jenis)>Barang</option>
+                            <option value="Jasa/Layanan" @selected(old('jenis')==$data->jenis)>Jasa/Layanan</option>
                         </select>
 
                         @error('jenis')
@@ -85,7 +86,8 @@
                             id="kategori_id" name="kategori_id" required>
                             <option selected disabled>--- Pilih Unit ---</option>
                             @foreach ($kategori as $item)
-                            <option value="{{ $item->id }}" @selected(old('kategori_id')==$item->id)>{{ $item->nama }}
+                            <option value="{{ $item->id }}" @selected(old('kategori_id')==$item->id ||
+                                $data->kategori_id)>{{ $item->nama }}
                             </option>
                             @endforeach
                         </select>
@@ -114,8 +116,9 @@
                         <label class="form-label">Status</label>
 
                         <div class="form-check form-switch form-switch-lg" dir="ltr">
-                            <input type="checkbox" class="form-check-input" id="is_active" @checked(old('status', 1))
-                                name="status" onchange="changeStatus()">
+                            <input type="checkbox" class="form-check-input" id="is_active" @checked(old('status'))
+                                @checked($data->status)
+                            name="status" onchange="changeStatus()">
                             <div class="row">
                                 <div>
                                     <label class="form-check-label" for="status" id="label_status">Aktif</label>
@@ -124,8 +127,6 @@
                                     <p id="deskripsi"> Asset ini akan muncul dan bisa untuk dipinjam oleh pengguna</p>
                                 </div>
                             </div>
-
-
                         </div>
 
                         @error('status')

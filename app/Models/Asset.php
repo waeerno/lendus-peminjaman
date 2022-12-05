@@ -15,8 +15,11 @@ class Asset extends Model
         'jumlah',
         'status',
         'jenis',
-        'kategori_id'
+        'kategori_id',
+        'foto'
     ];
+
+    // protected $foto;
 
     public function peminjaman()
     {

@@ -1,7 +1,8 @@
 @extends('layouts.master')
-@section('title') @lang('translation.starter') @endsection
+@section('title') Asset @endsection
 @section('css')
 <link href="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"">
 @endsection
 @section('content')
 @component('components.breadcrumb')
@@ -11,74 +12,93 @@
 
 @include('components.alerts')
 
-<div class="table-responsive">
-    <div class="float-end pb-4">
-        <a href="{{ route('master.asset.create') }}" type="button"
-            class="btn btn-primary btn-label waves-effect waves-light">
-            <i class="ri-add-fill label-icon align-middle fs-16 me-2"></i> Tambah
-        </a>
-    </div>
-    <table class="table align-middle mb-0">
-        <thead class="table-light">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Jumlah</th>
-                <th scope="col">Status</th>
-                <th scope="col">Jenis</th>
-                <th scope="col">Kategori</th>
-                <th scope="col">Foto</th>
-                <th scope="col" class="text-end">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @forelse ($data as $item)
-            <tr>
-                <th scope="row">{{ $loop->index +1 }}</th>
-                <td>
-                    <h6 class="text-primary mb-0">{{ $item->nama }}</h6>
-                    <span class="text-muted">
-                        {{ $item->unit->nama }}
-                    </span>
-                <td>{{ $item->jumlah }}</td>
-                <td>{{ $item->status }}</td>
-                <td>{{ $item->jenis }}</td>
-                <td>{{ $item->kategori->nama }}</td>
-                <td>
-                    <img src="{{ asset('storage/'.$item->foto) }}" alt="" width="100px">
-                </td>
-                <td class="text-end">
-                    <a href="{{ route('master.asset.edit', $item->id) }}" class="btn btn-sm btn-info"
-                        data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data">
-                        <i class="ri-edit-2-line"></i>
-                    </a>
+<div class=" table-responsive">
+<div class="float-end pb-4">
+    <a href="{{ route('master.asset.create') }}" type="button"
+        class="btn btn-primary btn-label waves-effect waves-light">
+        <i class="ri-add-fill label-icon align-middle fs-16 me-2"></i> Tambah
+    </a>
+</div>
+<table class="table align-middle mb-0">
+    <thead class="table-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Jumlah</th>
+            <th scope="col">Status</th>
+            <th scope="col">Jenis</th>
+            <th scope="col">Kategori</th>
+            <th scope="col">Foto</th>
+            <th scope="col" class="text-end">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @forelse ($data as $item)
+        <tr>
+            <th scope="row">{{ $loop->index +1 }}</th>
+            <td>
+                <h6 class="text-primary mb-0">{{ $item->nama }}</h6>
+                <span class="text-muted">
+                    {{ $item->unit->nama }}
+                </span>
+            <td>{{ $item->jumlah }}</td>
+            <td>
+                @switch($item->status)
+                @case(1)
+                <span class="badge rounded-pill badge-outline-primary">Tersedia</span>
+                @break
+                @case(0)
+                <span class="badge rounded-pill badge-outline-danger">Tidak Tersedia</span>
+                @break
+                @default
+                <span class="badge rounded-pill badge-outline-default">Belum ditentukan</span>
+                @endswitch
+            </td>
+            <td>{{ $item->jenis }}</td>
+            <td>{{ $item->kategori->nama }}</td>
+            <td>
+                @if ($item->foto)
+                <a class="btn btn-soft-info btn-info" data-fancybox data-type="pdf"
+                    href="{{ asset('storage/'.$item->foto) }}">{{
+                    Str::limit($item->foto, 20, '...') }}</a>
+                @else
+                <small class="text-danger">Kosong</small>
+                @endif
+            </td>
+            <td class="text-end">
+                <a href="{{ route('master.asset.edit', $item->id) }}" class="btn btn-sm btn-info"
+                    data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data">
+                    <i class="ri-edit-2-line"></i>
+                </a>
 
-                    <a href="#" class="btn btn-sm btn-danger" onclick="confirmDelete({{ $item->id }})"
-                        data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data">
-                        <form action="{{ route('master.asset.destroy', $item->id) }}" method="POST"
-                            id="delete-{{ $item->id }}">
-                            @csrf
-                            @method('DELETE')
-                        </form>
-                        <i class="ri-delete-bin-2-line"></i>
-                    </a>
-                </td>
-            </tr>
-            @empty
-            <tr>
-                <td colspan="9" class="text-center"><span class="text-danger">Belum Ada Data</span></td>
-            </tr>
-            @endforelse
+                <a href="#" class="btn btn-sm btn-danger" onclick="confirmDelete({{ $item->id }})"
+                    data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data">
+                    <form action="{{ route('master.asset.destroy', $item->id) }}" method="POST"
+                        id="delete-{{ $item->id }}">
+                        @csrf
+                        @method('DELETE')
+                    </form>
+                    <i class="ri-delete-bin-2-line"></i>
+                </a>
+            </td>
+        </tr>
+        @empty
+        <tr>
+            <td colspan="9" class="text-center"><span class="text-danger">Belum Ada Data</span></td>
+        </tr>
+        @endforelse
 
-        </tbody>
-    </table>
-    <!-- end table -->
+    </tbody>
+</table>
+<!-- end table -->
 </div>
 <!-- end table responsive -->
 @endsection
 @section('script')
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+</script>
 
 <script src="{{ URL::asset('/assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
 
@@ -162,7 +182,6 @@
 
 });
 </script>
-
 <script src="{{ URL::asset('/assets/js/app.min.js') }}"></script>
 
 @endsection
