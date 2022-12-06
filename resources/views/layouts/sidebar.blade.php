@@ -71,8 +71,8 @@
 
 
                 <li class="nav-item">
-                    <a href="{{ route('dashboard') }}"
-                        class="nav-link {{ request()->routeIs('dashboard') ? 'text-primary' : '' }}" role="button"
+                    <a href="{{ route('peminjaman.index') }}"
+                        class="nav-link {{ request()->routeIs('peminjaman.*') ? 'text-primary' : '' }}" role="button"
                         aria-expanded="true" aria-controls="sidebarDashboards">
                         <i class="ri-dashboard-2-line"></i> <span>Peminjaman</span>
                     </a>

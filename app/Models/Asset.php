@@ -23,7 +23,7 @@ class Asset extends Model
 
     public function peminjaman()
     {
-        return $this->belongsTo(Peminjaman::class);
+        return $this->hasOne(Peminjaman::class);
     }
 
     public function unit()

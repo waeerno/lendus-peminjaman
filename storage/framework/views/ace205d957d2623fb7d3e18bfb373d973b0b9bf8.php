@@ -71,8 +71,8 @@
 
 
                 <li class="nav-item">
-                    <a href="<?php echo e(route('dashboard')); ?>"
-                        class="nav-link <?php echo e(request()->routeIs('dashboard') ? 'text-primary' : ''); ?>" role="button"
+                    <a href="<?php echo e(route('peminjaman.index')); ?>"
+                        class="nav-link <?php echo e(request()->routeIs('peminjaman.*') ? 'text-primary' : ''); ?>" role="button"
                         aria-expanded="true" aria-controls="sidebarDashboards">
                         <i class="ri-dashboard-2-line"></i> <span>Peminjaman</span>
                     </a>

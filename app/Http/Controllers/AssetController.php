@@ -120,4 +120,10 @@ class AssetController extends Controller
             return to_route('master.asset.index')->with('error', $error);
         }
     }
+
+    public function getJumlah($id)
+    {
+        $course = Asset::find($id);
+        return response()->json($course);
+    }
 }

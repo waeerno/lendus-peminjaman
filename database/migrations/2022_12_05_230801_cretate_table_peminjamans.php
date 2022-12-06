@@ -17,13 +17,15 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('asset_id')->constrained();
-            $table->foreignId('admin_id')->constrained();
+            $table->foreignId('admin_id')->constrained()->default(NULL)->nullable();
             $table->date('tanggal_pengajuan');
             $table->date('mulai_pakai');
             $table->integer('durasi');
             $table->text('surat');
-            $table->string('catatan');
-            $table->integer('keputusan');
+            $table->integer('jumlah');
+            $table->string('catatan')->nullable();
+            $table->date('tanggal_keputusan');
+            $table->integer('keputusan')->nullable();
             $table->timestamps();
         });
     }
@@ -35,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('peminjamans');
+        //
     }
 };

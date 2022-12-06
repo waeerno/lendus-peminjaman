@@ -20,9 +20,8 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             OperatorSeeder::class,
             KategoriSeeder::class,
-            // UserSeeder::class,
-            // UnitSeeder::class,
-            // KategoriSeeder::class,
+            UnitSeeder::class,
+            AssetSeeder::class,
         ]);
     }
 }

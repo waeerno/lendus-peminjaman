@@ -4,7 +4,9 @@ use App\Http\Controllers\AssetController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\UnitController;
+use App\Models\Asset;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -30,8 +32,14 @@ Route::middleware('auth')->name('master.')->group(function () {
     Route::resource('unit', UnitController::class)->except('show');
     Route::resource('kategori', KategoriController::class)->except('show');
     Route::resource('asset', AssetController::class)->except('show');
+    Route::get('getJumlah/{id}', AssetController::class, 'getJumlah')->name('getJumlah');
 });
+Route::resource('peminjaman', PeminjamanController::class)->middleware('auth');
 
+// Route::get('getJumlah/{id}', function ($id) {
+//     $course = Asset::where('id', $id)->get();
+//     return response()->json($course);
+// });
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');
 //Update User Details
 Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');

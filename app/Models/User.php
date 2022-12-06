@@ -46,6 +46,6 @@ class User extends Authenticatable
 
     public function peminjaman()
     {
-        return $this->belongsTo(Peminjaman::class);
+        return $this->hasOne(Peminjaman::class);
     }
 }

@@ -19,23 +19,25 @@ class Peminjaman extends Model
         'jenis'
     ];
 
+    public $table = "peminjamans";
+
     public function unit()
     {
-        return $this->hasOne(Unit::class);
+        return $this->belongsTo(Unit::class);
     }
 
     public function asset()
     {
-        return $this->hasOne(Asset::class);
+        return $this->belongsTo(Asset::class);
     }
 
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function admin()
     {
-        return $this->hasOne(Admin::class);
+        return $this->belongsTo(Admin::class);
     }
 }

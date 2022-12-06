@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PeminjamanRequest;
+use App\Models\Asset;
 use App\Models\Peminjaman;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PeminjamanController extends Controller
@@ -14,7 +18,11 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.peminjaman.index', [
+            'data' => Peminjaman::orderBy('id', 'desc')->get(),
+            'user' => User::get(),
+            'asset' => Asset::get(),
+        ]);
     }
 
     /**
@@ -24,7 +32,10 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.peminjaman.create', [
+            'asset' => Asset::orderBy('id', 'desc')->get(),
+            'user' => User::get()
+        ]);
     }
 
     /**
@@ -33,9 +44,24 @@ class PeminjamanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PeminjamanRequest $request)
     {
-        //
+        $data = new Peminjaman;
+
+        $data->user_id = $request->pengguna;
+        $data->asset_id = $request->asset;
+        $data->mulai_pakai = $request->pakai;
+        $data->durasi = $request->durasi;
+        $data->tanggal_pengajuan = Carbon::now();
+
+        if ($request->file('surat')) {
+            $file = $request->file('surat')->store('AssetSurat', 'public');
+            $data->surat = $file;
+        }
+
+        // dd($data);
+        $data->save();
+        return to_route('peminjaman.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
