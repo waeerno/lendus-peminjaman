@@ -35,7 +35,8 @@
             <td>
                 <h6 class="text-primary mb-0"><?php echo e($item->user->name); ?></h6>
                 <span class="text-muted">
-                    
+                    <?php echo e($item->user->unit->nama); ?>
+
                 </span>
             <td><?php echo e($item->asset->nama); ?></td>
             <td><?php echo e($item->jumlah); ?></td>

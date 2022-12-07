@@ -52,6 +52,7 @@ class PeminjamanController extends Controller
         $data->asset_id = $request->asset;
         $data->mulai_pakai = $request->pakai;
         $data->durasi = $request->durasi;
+        $data->jumlah = $request->jumlah;
         $data->tanggal_pengajuan = Carbon::now();
 
         if ($request->file('surat')) {

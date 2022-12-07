@@ -29,4 +29,9 @@ class Unit extends Model
     {
         return $this->hasOne(Asset::class);
     }
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
 }

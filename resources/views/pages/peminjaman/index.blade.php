@@ -36,7 +36,7 @@
             <td>
                 <h6 class="text-primary mb-0">{{ $item->user->name }}</h6>
                 <span class="text-muted">
-                    {{-- {{ $item->unit->nama }} --}}
+                    {{ $item->user->unit->nama }}
                 </span>
             <td>{{ $item->asset->nama }}</td>
             <td>{{ $item->jumlah }}</td>

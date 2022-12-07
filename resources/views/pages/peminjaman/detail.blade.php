@@ -19,7 +19,7 @@
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="lastNameinput" class="form-label">Unit</label>
-                                <input type="text" class="form-control" value="{{ $item->user->unit }}">
+                                <input type="text" class="form-control" value="{{ $item->user->unit->nama }}">
                             </div>
                         </div>
                         <!--end col-->

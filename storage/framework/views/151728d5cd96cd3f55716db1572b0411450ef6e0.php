@@ -19,7 +19,7 @@
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="lastNameinput" class="form-label">Unit</label>
-                                <input type="text" class="form-control" value="<?php echo e($item->user->unit); ?>">
+                                <input type="text" class="form-control" value="<?php echo e($item->user->unit->nama); ?>">
                             </div>
                         </div>
                         <!--end col-->
@@ -64,7 +64,7 @@
                         <div class="col-12">
                             <div class="mb-3">
                                 <label for="ForminputState" class="form-label">Catatan</label>
-                                <input type="text" class="form-control" name="catatan">
+                                <input type="text" name="catatan" class="form-control" name="catatan">
                             </div>
                         </div>
                         <!--end col-->

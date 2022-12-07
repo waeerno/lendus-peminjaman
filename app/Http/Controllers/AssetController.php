@@ -121,9 +121,9 @@ class AssetController extends Controller
         }
     }
 
-    public function getJumlah($id)
+    public function show($id)
     {
-        $course = Asset::find($id);
-        return response()->json($course);
+        $data = Asset::where('unit_id', 1);
+        return response()->json($data);
     }
 }

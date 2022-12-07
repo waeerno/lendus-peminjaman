@@ -31,8 +31,7 @@ Route::get('/', DashboardController::class)->name('dashboard');
 Route::middleware('auth')->name('master.')->group(function () {
     Route::resource('unit', UnitController::class)->except('show');
     Route::resource('kategori', KategoriController::class)->except('show');
-    Route::resource('asset', AssetController::class)->except('show');
-    Route::get('getJumlah/{id}', AssetController::class, 'getJumlah')->name('getJumlah');
+    Route::resource('asset', AssetController::class);
 });
 Route::resource('peminjaman', PeminjamanController::class)->middleware('auth');
 

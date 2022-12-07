@@ -24,7 +24,7 @@ return new class extends Migration
             $table->text('surat');
             $table->integer('jumlah');
             $table->string('catatan')->nullable();
-            $table->date('tanggal_keputusan');
+            $table->date('tanggal_keputusan')->nullable();
             $table->integer('keputusan')->nullable();
             $table->timestamps();
         });

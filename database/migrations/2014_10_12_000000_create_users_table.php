@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             // $table->timestamps();
 
             $table->id();
+            $table->foreignId('unit_id')->constrained();
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -34,7 +35,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-        User::create(['name' => 'admin', 'email' => 'admin@themesbrand.com', 'password' => Hash::make('123456'), 'email_verified_at' => '2022-01-02 17:04:58', 'avatar' => 'avatar-1.jpg', 'created_at' => now(),]);
+        // User::create(['unit_id' => '1', 'name' => 'admin', 'email' => 'admin@themesbrand.com', 'password' => Hash::make('123456'), 'email_verified_at' => '2022-01-02 17:04:58', 'avatar' => 'avatar-1.jpg', 'created_at' => now(),]);
     }
     /**
      * Reverse the migrations.
