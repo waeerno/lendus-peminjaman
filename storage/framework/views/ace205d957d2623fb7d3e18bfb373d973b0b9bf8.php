@@ -107,13 +107,13 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="<?php echo e(route('dashboard')); ?>" class="nav-link <?php echo e(request()->routeIs('dashboard') ? 'text-primary' : ''); ?>" role="button" aria-expanded="true" aria-controls="sidebarDashboards">
+                    <a href="<?php echo e(route('role.index')); ?>" class="nav-link <?php echo e(request()->routeIs('role.*') ? 'text-primary' : ''); ?>" role="button" aria-expanded="true" aria-controls="sidebarDashboards">
                         <i class="ri-dashboard-2-line"></i> <span>Role</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="<?php echo e(route('dashboard')); ?>" class="nav-link <?php echo e(request()->routeIs('dashboard') ? 'text-primary' : ''); ?>" role="button" aria-expanded="true" aria-controls="sidebarDashboards">
+                    <a href="<?php echo e(route('permission')); ?>" class="nav-link <?php echo e(request()->routeIs('permission') ? 'text-primary' : ''); ?>" role="button" aria-expanded="true" aria-controls="sidebarDashboards">
                         <i class="ri-dashboard-2-line"></i> <span>Permission</span>
                     </a>
                 </li>

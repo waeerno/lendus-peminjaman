@@ -107,13 +107,13 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('dashboard') }}" class="nav-link {{ request()->routeIs('dashboard') ? 'text-primary' : '' }}" role="button" aria-expanded="true" aria-controls="sidebarDashboards">
+                    <a href="{{ route('role.index') }}" class="nav-link {{ request()->routeIs('role.*') ? 'text-primary' : '' }}" role="button" aria-expanded="true" aria-controls="sidebarDashboards">
                         <i class="ri-dashboard-2-line"></i> <span>Role</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('dashboard') }}" class="nav-link {{ request()->routeIs('dashboard') ? 'text-primary' : '' }}" role="button" aria-expanded="true" aria-controls="sidebarDashboards">
+                    <a href="{{ route('permission') }}" class="nav-link {{ request()->routeIs('permission') ? 'text-primary' : '' }}" role="button" aria-expanded="true" aria-controls="sidebarDashboards">
                         <i class="ri-dashboard-2-line"></i> <span>Permission</span>
                     </a>
                 </li>
