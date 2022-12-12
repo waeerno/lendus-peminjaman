@@ -48,8 +48,8 @@ Route::middleware('auth')->name('pengguna.')->group(function () {
     Route::get('operator-password', [OperatorController::class, 'password'])->name('operator.password');
     Route::put('operator-store-password', [OperatorController::class, 'updatePassword'])->name('operator.password-update');
     Route::resource('admin', AdminController::class)->except('show');
-    Route::get('admin-password', [OperatorController::class, 'password'])->name('admin.password');
-    Route::put('admin-store-password', [OperatorController::class, 'updatePassword'])->name('admin.password-update');
+    Route::get('admin-password', [AdminController::class, 'password'])->name('admin.password');
+    Route::put('admin-store-password', [AdminController::class, 'updatePassword'])->name('admin.password-update');
     Route::resource('client', ClientController::class)->except('show');
 });
 

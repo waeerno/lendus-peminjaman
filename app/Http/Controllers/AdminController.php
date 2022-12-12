@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -15,7 +16,7 @@ class AdminController extends Controller
     public function index()
     {
         return view('pages.admin.index', [
-            'data' => Admin::all()
+            'data' => Admin::all(),
         ]);
     }
 
@@ -26,7 +27,9 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.create');
+        return view('pages.admin.create', [
+            'unit' => Unit::all()
+        ]);
     }
 
     /**
@@ -52,8 +55,9 @@ class AdminController extends Controller
      */
     public function edit(Admin $admin)
     {
-        return view('pages.operator.edit', [
-            'data' => $admin
+        return view('pages.admin.edit', [
+            'data' => $admin,
+            'unit' => Unit::all()
         ]);
     }
 
