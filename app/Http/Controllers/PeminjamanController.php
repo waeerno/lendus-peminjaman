@@ -19,7 +19,7 @@ class PeminjamanController extends Controller
     public function index()
     {
         return view('pages.peminjaman.index', [
-            'data' => Peminjaman::orderBy('id', 'desc')->get(),
+            'data' => Peminjaman::where('keputusan', NULL)->orderBy('id', 'desc')->get(),
             'user' => User::get(),
             'asset' => Asset::get(),
         ]);
@@ -65,6 +65,7 @@ class PeminjamanController extends Controller
         return to_route('peminjaman.index')->with('success', 'Data berhasil ditambahkan');
     }
 
+
     /**
      * Display the specified resource.
      *
@@ -96,7 +97,16 @@ class PeminjamanController extends Controller
      */
     public function update(Request $request, Peminjaman $peminjaman)
     {
-        //
+        $data = $request->all();
+        $data['tanggal_keputusan'] = date("Y-m-d H:i:s");
+        $peminjaman->update($data);
+
+        // $data = new Peminjaman;
+        // $data->admin_id = $request->admin_id;
+        // $data->keputusan = $request->keputusan;
+        // $data->tanggal_keputusan = date("Y-m-d H:i:s");
+        // $data->update();
+        return to_route('peminjaman.index')->with('success', 'Data berhasil diproses');
     }
 
     /**

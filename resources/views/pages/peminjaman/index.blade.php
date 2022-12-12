@@ -42,23 +42,7 @@
             <td>{{ $item->jumlah }}</td>
             <td>{{ $item->tanggal_pengajuan }}</td>
             <td class="text-end">
-                <button type="button" class="btn btn-sm btn-info " data-bs-toggle="modal"
-                    data-bs-target="#detail-{{ $item->id }}">Detail</button>
-
-                <a href="{{ route('peminjaman.edit', $item->id) }}" class="btn btn-sm btn-info" data-bs-toggle="tooltip"
-                    data-bs-placement="top" title="Edit Data">
-                    <i class="ri-edit-2-line"></i>
-                </a>
-
-                <a href="#" class="btn btn-sm btn-danger" onclick="confirmDelete({{ $item->id }})"
-                    data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data">
-                    <form action="{{ route('peminjaman.destroy', $item->id) }}" method="POST"
-                        id="delete-{{ $item->id }}">
-                        @csrf
-                        @method('DELETE')
-                    </form>
-                    <i class="ri-delete-bin-2-line"></i>
-                </a>
+                <button type="button" class="btn btn-sm btn-info " data-bs-toggle="modal" data-bs-target="#detail-{{ $item->id }}">Proses</button>
             </td>
         </tr>
         @include('pages.peminjaman.detail')
@@ -76,8 +60,7 @@
 @endsection
 @section('script')
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
 </script>
 
 <script src="{{ URL::asset('/assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
@@ -155,12 +138,13 @@
 @endif
 
 <script>
-    $("document").ready(function(){
-    setTimeout(function(){
-       $("div.alert").remove();
-    }, 4000 ); // 5 secs
+    $("document").ready(function() {
+        setTimeout(function() {
+            $("div.alert").remove();
+        }, 4000); // 5 secs
 
-});
+    });
+
 </script>
 <script src="{{ URL::asset('/assets/js/app.min.js') }}"></script>
 

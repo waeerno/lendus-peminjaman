@@ -1,22 +1,18 @@
-<?php $__env->startSection('title'); ?> Peminjaman <?php $__env->stopSection(); ?>
-<?php $__env->startSection('css'); ?>
-<link href="<?php echo e(URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')); ?>" rel="stylesheet" type="text/css" />
+@extends('layouts.master')
+@section('title') Riwayat @endsection
+@section('css')
+<link href="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"">
-<?php $__env->stopSection(); ?>
-<?php $__env->startSection('content'); ?>
-<?php $__env->startComponent('components.breadcrumb'); ?>
-<?php $__env->slot('li_1'); ?> Data <?php $__env->endSlot(); ?>
-<?php $__env->slot('title'); ?> Asset <?php $__env->endSlot(); ?>
-<?php echo $__env->renderComponent(); ?>
+@endsection
+@section('content')
+@component('components.breadcrumb')
+@slot('li_1') Data @endslot
+@slot('title') Riwayat @endslot
+@endcomponent
 
-<?php echo $__env->make('components.alerts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+@include('components.alerts')
 
 <div class=" table-responsive">
-<div class="float-end pb-4">
-    <a href="<?php echo e(route('peminjaman.create')); ?>" type="button" class="btn btn-primary btn-label waves-effect waves-light">
-        <i class="ri-add-fill label-icon align-middle fs-16 me-2"></i> Tambah
-    </a>
-</div>
 <table class="table align-middle mb-0">
     <thead class="table-light">
         <tr>
@@ -25,47 +21,52 @@
             <th scope="col">Asset</th>
             <th scope="col">Jumlah</th>
             <th scope="col">Tanggal pengajuan</th>
-            <th scope="col" class="text-end">Action</th>
+            <th scope="col">Tanggal Penggunaan</th>
+            <th scope="col">Durasi</th>
+            <th scope="col">Catatan</th>
+            <th scope="col">Verifikasi oleh</th>
+            <th scope="col">Tanggal Verifikasi</th>
+
         </tr>
     </thead>
     <tbody>
-        <?php $__empty_1 = true; $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+        @forelse ($data as $item)
         <tr>
-            <th scope="row"><?php echo e($loop->index +1); ?></th>
+            <th scope="row">{{ $loop->index +1 }}</th>
             <td>
-                <h6 class="text-primary mb-0"><?php echo e($item->user->name); ?></h6>
+                <h6 class="text-primary mb-0">{{ $item->user->name }}</h6>
                 <span class="text-muted">
-                    <?php echo e($item->user->unit->nama); ?>
-
+                    {{ $item->user->unit->nama }}
                 </span>
-            <td><?php echo e($item->asset->nama); ?></td>
-            <td><?php echo e($item->jumlah); ?></td>
-            <td><?php echo e($item->tanggal_pengajuan); ?></td>
-            <td class="text-end">
-                <button type="button" class="btn btn-sm btn-info " data-bs-toggle="modal" data-bs-target="#detail-<?php echo e($item->id); ?>">Proses</button>
-            </td>
+            <td>{{ $item->asset->nama }}</td>
+            <td>{{ $item->jumlah }}</td>
+            <td>{{ $item->tanggal_pengajuan }}</td>
+            <td>{{ $item->mulai_pakai }}</td>
+            <td>{{ $item->durasi }} Hari</td>
+            <td>{{ $item->catatan }}</td>
+            <td>{{ $item->admin->nama }}</td>
+            <td>{{ $item->tanggal_keputusan }}</td>
         </tr>
-        <?php echo $__env->make('pages.peminjaman.detail', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+        @empty
         <tr>
             <td colspan="9" class="text-center"><span class="text-danger">Belum Ada Data</span></td>
         </tr>
-        <?php endif; ?>
+        @endforelse
 
     </tbody>
 </table>
 <!-- end table -->
 </div>
 <!-- end table responsive -->
-<?php $__env->stopSection(); ?>
-<?php $__env->startSection('script'); ?>
+@endsection
+@section('script')
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
 </script>
 
-<script src="<?php echo e(URL::asset('/assets/libs/sweetalert2/sweetalert2.min.js')); ?>"></script>
+<script src="{{ URL::asset('/assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
 
-
+{{-- Delete Data Sweet Alert --}}
 <script>
     const confirmDelete = id => {
         Swal.fire({
@@ -99,10 +100,10 @@
 </script>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-<?php if(Session::has('success')): ?>
+@if(Session::has('success'))
 <script>
     Toastify({
-        text: "<?php echo e(session()->get('success')); ?>"
+        text: "{{ session()->get('success') }}"
         , duration: 5000
         , close: true
         , gravity: "top", // `top` or `bottom`
@@ -116,12 +117,12 @@
     }).showToast();
 
 </script>
-<?php endif; ?>
+@endif
 
-<?php if(Session::has('error')): ?>
+@if(Session::has('error'))
 <script>
     Toastify({
-        text: "<?php echo e(session()->get('error')); ?>"
+        text: "{{ session()->get('error') }}"
         , duration: 5000
         , close: true
         , gravity: "top", // `top` or `bottom`
@@ -135,7 +136,7 @@
     }).showToast();
 
 </script>
-<?php endif; ?>
+@endif
 
 <script>
     $("document").ready(function() {
@@ -146,8 +147,6 @@
     });
 
 </script>
-<script src="<?php echo e(URL::asset('/assets/js/app.min.js')); ?>"></script>
+<script src="{{ URL::asset('/assets/js/app.min.js') }}"></script>
 
-<?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\lendus-velzon\resources\views/pages/peminjaman/index.blade.php ENDPATH**/ ?>
+@endsection

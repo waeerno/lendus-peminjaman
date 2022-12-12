@@ -11,12 +11,16 @@ class Peminjaman extends Model
 
     protected $fillable = [
         'user_id',
-        'no_induk',
-        'nama',
-        'no_wa',
-        'email',
-        'unit_id',
-        'jenis'
+        'asset_id',
+        'admin_id',
+        'tanggal_pengajuan',
+        'mulai_pakai',
+        'durasi',
+        'surat',
+        'jumlah',
+        'catatan',
+        'tanggal_keputusan',
+        'keputusan',
     ];
 
     public $table = "peminjamans";

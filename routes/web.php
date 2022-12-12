@@ -4,7 +4,9 @@ use App\Http\Controllers\AssetController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\UnitController;
 use App\Models\Asset;
 use Illuminate\Support\Facades\Route;
@@ -33,7 +35,17 @@ Route::middleware('auth')->name('master.')->group(function () {
     Route::resource('kategori', KategoriController::class)->except('show');
     Route::resource('asset', AssetController::class);
 });
-Route::resource('peminjaman', PeminjamanController::class)->middleware('auth');
+
+Route::resource('peminjaman', PeminjamanController::class);
+Route::middleware('auth')->group(function () {
+    Route::get('riwayat', RiwayatController::class)->name('riwayat.index');
+});
+
+Route::middleware('auth')->name('pengguna.')->group(function () {
+    Route::resource('operator', OperatorController::class)->except('show');
+    // Route::resource('kategori', KategoriController::class)->except('show');
+    // Route::resource('asset', AssetController::class);
+});
 
 // Route::get('getJumlah/{id}', function ($id) {
 //     $course = Asset::where('id', $id)->get();

@@ -1,4 +1,4 @@
-<?php $__env->startSection('title'); ?> Peminjaman <?php $__env->stopSection(); ?>
+<?php $__env->startSection('title'); ?> Riwayat <?php $__env->stopSection(); ?>
 <?php $__env->startSection('css'); ?>
 <link href="<?php echo e(URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')); ?>" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"">
@@ -6,17 +6,12 @@
 <?php $__env->startSection('content'); ?>
 <?php $__env->startComponent('components.breadcrumb'); ?>
 <?php $__env->slot('li_1'); ?> Data <?php $__env->endSlot(); ?>
-<?php $__env->slot('title'); ?> Asset <?php $__env->endSlot(); ?>
+<?php $__env->slot('title'); ?> Riwayat <?php $__env->endSlot(); ?>
 <?php echo $__env->renderComponent(); ?>
 
 <?php echo $__env->make('components.alerts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <div class=" table-responsive">
-<div class="float-end pb-4">
-    <a href="<?php echo e(route('peminjaman.create')); ?>" type="button" class="btn btn-primary btn-label waves-effect waves-light">
-        <i class="ri-add-fill label-icon align-middle fs-16 me-2"></i> Tambah
-    </a>
-</div>
 <table class="table align-middle mb-0">
     <thead class="table-light">
         <tr>
@@ -25,7 +20,12 @@
             <th scope="col">Asset</th>
             <th scope="col">Jumlah</th>
             <th scope="col">Tanggal pengajuan</th>
-            <th scope="col" class="text-end">Action</th>
+            <th scope="col">Tanggal Penggunaan</th>
+            <th scope="col">Durasi</th>
+            <th scope="col">Catatan</th>
+            <th scope="col">Verifikasi oleh</th>
+            <th scope="col">Tanggal Verifikasi</th>
+
         </tr>
     </thead>
     <tbody>
@@ -41,11 +41,12 @@
             <td><?php echo e($item->asset->nama); ?></td>
             <td><?php echo e($item->jumlah); ?></td>
             <td><?php echo e($item->tanggal_pengajuan); ?></td>
-            <td class="text-end">
-                <button type="button" class="btn btn-sm btn-info " data-bs-toggle="modal" data-bs-target="#detail-<?php echo e($item->id); ?>">Proses</button>
-            </td>
+            <td><?php echo e($item->mulai_pakai); ?></td>
+            <td><?php echo e($item->durasi); ?> Hari</td>
+            <td><?php echo e($item->catatan); ?></td>
+            <td><?php echo e($item->admin->nama); ?></td>
+            <td><?php echo e($item->tanggal_keputusan); ?></td>
         </tr>
-        <?php echo $__env->make('pages.peminjaman.detail', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
         <tr>
             <td colspan="9" class="text-center"><span class="text-danger">Belum Ada Data</span></td>
@@ -150,4 +151,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\lendus-velzon\resources\views/pages/peminjaman/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\lendus-velzon\resources\views/pages/riwayat/index.blade.php ENDPATH**/ ?>

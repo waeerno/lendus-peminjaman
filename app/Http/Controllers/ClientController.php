@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Operator;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class OperatorController extends Controller
+class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class OperatorController extends Controller
      */
     public function index()
     {
-        return view("pages.operator.index", [
-            'data' => Operator::get()
+        return view("pages.client.index", [
+            'data' => User::get()
         ]);
     }
 
@@ -43,10 +43,10 @@ class OperatorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Operator  $operator
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Operator $operator)
+    public function show($id)
     {
         //
     }
@@ -54,10 +54,10 @@ class OperatorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Operator  $operator
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Operator $operator)
+    public function edit($id)
     {
         //
     }
@@ -66,10 +66,10 @@ class OperatorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Operator  $operator
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Operator $operator)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,10 +77,10 @@ class OperatorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Operator  $operator
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Operator $operator)
+    public function destroy($id)
     {
         //
     }
