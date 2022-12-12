@@ -77,7 +77,8 @@
                     <a class="nav-link menu-link  <?php echo e(request()->routeIs('pengguna.*') ? 'text-primary' : ''); ?>" href="#sidebarPengguna" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarPengguna">
                         <i class="bx bxs-data"></i> <span>Pengguna</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarPengguna">
+                    <div class="collapse menu-dropdown <?php echo e(request()->routeIs('pengguna.*') ? 'show' : ''); ?>" id="sidebarPengguna">
+
 
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
