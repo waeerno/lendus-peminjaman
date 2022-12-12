@@ -20,7 +20,7 @@
     </thead>
     <tbody>
         <?php $__empty_1 = true; $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-        <th scope="row"><?php echo e($item->nama); ?></th>
+        <th scope="row"><?php echo e($item->name); ?></th>
         </tr>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
         <tr>

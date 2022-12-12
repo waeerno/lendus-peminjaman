@@ -21,7 +21,7 @@
     </thead>
     <tbody>
         @forelse ($data as $item)
-        <th scope="row">{{ $item->nama }}</th>
+        <th scope="row">{{ $item->name }}</th>
         </tr>
         @empty
         <tr>

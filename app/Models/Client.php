@@ -5,14 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Unit extends Model
+class Client extends Model
 {
     use HasFactory;
 
     protected $fillable = [
+        'no_induk',
         'nama',
-        'pimpinan',
-        'nip'
+        'no_wa',
+        'email',
+        'unit_id',
+        'jenis',
     ];
 
     public function peminjaman()
@@ -20,18 +23,8 @@ class Unit extends Model
         return $this->hasOne(Peminjaman::class);
     }
 
-    public function admin()
+    public function unit()
     {
-        return $this->belongsTo(Admin::class);
-    }
-
-    public function asset()
-    {
-        return $this->hasOne(Asset::class);
-    }
-
-    public function client()
-    {
-        return $this->hasOne(Client::class);
+        return $this->belongsTo(Unit::class);
     }
 }

@@ -35,9 +35,9 @@ class Peminjaman extends Model
         return $this->belongsTo(Asset::class);
     }
 
-    public function user()
+    public function client()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Client::class);
     }
 
     public function admin()

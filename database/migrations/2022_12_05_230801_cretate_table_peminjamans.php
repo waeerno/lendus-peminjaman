@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('peminjamans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('client_id')->constrained();
             $table->foreignId('asset_id')->constrained();
             $table->foreignId('admin_id')->constrained()->default(NULL)->nullable();
             $table->date('tanggal_pengajuan');

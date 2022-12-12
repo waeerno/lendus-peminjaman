@@ -45,13 +45,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function peminjaman()
-    {
-        return $this->hasOne(Peminjaman::class);
-    }
+    // TODO:pindahin ke client
 
-    public function unit()
-    {
-        return $this->belongsTo(Unit::class);
-    }
 }
