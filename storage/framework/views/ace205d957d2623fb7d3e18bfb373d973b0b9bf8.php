@@ -84,10 +84,14 @@
                                 <a href="<?php echo e(route('pengguna.operator.index')); ?>" class="nav-link  <?php echo e(request()->routeIs('pengguna.operator.*') ? 'text-primary' : ''); ?>">Operator</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">Admin</a>
+                                <a href="<?php echo e(route('pengguna.admin.index')); ?>" class="nav-link <?php echo e(request()->routeIs('pengguna.admin.*') ? 'text-primary' : ''); ?>">Admin</a>
+
+
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">Klien</a>
+                                <a href="<?php echo e(route('pengguna.client.index')); ?>" class="nav-link <?php echo e(request()->routeIs('pengguna.client.*') ? 'text-primary' : ''); ?>">Klien</a>
+
+
                             </li>
                         </ul>
                     </div>

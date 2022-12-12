@@ -14,7 +14,9 @@ class OperatorController extends Controller
      */
     public function index()
     {
-        return view("pages.operator.index", [
+        // echo "test";
+        // die;
+        return view('pages.operator.index', [
             'data' => Operator::get()
         ]);
     }
@@ -26,7 +28,7 @@ class OperatorController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.operator.create');
     }
 
     /**
@@ -37,19 +39,14 @@ class OperatorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['password'] = bcrypt($request->password);
+        Operator::create($data);
+
+        return to_route('pengguna.operator.index')->with('success', 'Data berhasil ditambahkan');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Operator  $operator
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Operator $operator)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -59,7 +56,16 @@ class OperatorController extends Controller
      */
     public function edit(Operator $operator)
     {
-        //
+        return view('pages.operator.edit', [
+            'data' => $operator
+        ]);
+    }
+
+    public function password(Operator $operator)
+    {
+        return view('pages.operator.password', [
+            'data' => $operator
+        ]);
     }
 
     /**
@@ -71,7 +77,24 @@ class OperatorController extends Controller
      */
     public function update(Request $request, Operator $operator)
     {
-        //
+        $data = $request->all();
+        $operator->update($data);
+
+        return to_route('pengguna.operator.index')->with('success', 'Data berhasil diubah');
+    }
+
+    /**
+     * updatePassword
+     *
+     * @param  mixed $request
+     * @return void
+     */
+    public function updatePassword(Request $request, Operator $operator)
+    {
+        $data = $request->all();
+        $operator->update($data);
+
+        return to_route('pengguna.operator.index')->with('success', 'Password berhasil diubah');
     }
 
     /**
@@ -82,6 +105,7 @@ class OperatorController extends Controller
      */
     public function destroy(Operator $operator)
     {
-        //
+        $operator->delete();
+        return to_route('pengguna.operator.index')->with('success', 'Data berhasil dihapus');
     }
 }

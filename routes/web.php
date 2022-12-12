@@ -43,8 +43,12 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->name('pengguna.')->group(function () {
     Route::resource('operator', OperatorController::class)->except('show');
-    // Route::resource('kategori', KategoriController::class)->except('show');
-    // Route::resource('asset', AssetController::class);
+    Route::get('operator-password', [OperatorController::class, 'password'])->name('operator.password');
+    Route::put('operator-store-password', [OperatorController::class, 'updatePassword'])->name('operator.password-update');
+    Route::resource('admin', OperatorController::class)->except('show');
+    Route::get('admin-password', [OperatorController::class, 'password'])->name('admin.password');
+    Route::put('admin-store-password', [OperatorController::class, 'updatePassword'])->name('admin.password-update');
+    Route::resource('client', OperatorController::class)->except('show');
 });
 
 // Route::get('getJumlah/{id}', function ($id) {
@@ -53,7 +57,7 @@ Route::middleware('auth')->name('pengguna.')->group(function () {
 // });
 // Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');
 //Update User Details
-Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
-Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatePassword');
+// Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
+// Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatePassword');
 
 Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');

@@ -14,8 +14,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view("pages.admin.index", [
-            'data' => Admin::get()
+        return view('pages.admin.index', [
+            'data' => Admin::all()
         ]);
     }
 
@@ -26,7 +26,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.create');
     }
 
     /**
@@ -37,18 +37,11 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $data = $request->all();
+        $data['password'] = bcrypt($request->password);
+        Admin::create($data);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Admin  $admin
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Admin $admin)
-    {
-        //
+        return to_route('pengguna.admin.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -59,7 +52,22 @@ class AdminController extends Controller
      */
     public function edit(Admin $admin)
     {
-        //
+        return view('pages.operator.edit', [
+            'data' => $admin
+        ]);
+    }
+
+    /**
+     * password
+     *
+     * @param  mixed $operator
+     * @return void
+     */
+    public function password(Admin $admin)
+    {
+        return view('pages.admin.password', [
+            'data' => $admin
+        ]);
     }
 
     /**
@@ -71,7 +79,25 @@ class AdminController extends Controller
      */
     public function update(Request $request, Admin $admin)
     {
-        //
+        $data = $request->all();
+        $admin->update($data);
+
+        return to_route('pengguna.admin.index')->with('success', 'Data berhasil diubah');
+    }
+
+    /**
+     * updatePassword
+     *
+     * @param  mixed $request
+     * @param  mixed $operator
+     * @return void
+     */
+    public function updatePassword(Request $request, Admin $admin)
+    {
+        $data = $request->all();
+        $admin->update($data);
+
+        return to_route('pengguna.admin.index')->with('success', 'Password berhasil diubah');
     }
 
     /**
@@ -82,6 +108,7 @@ class AdminController extends Controller
      */
     public function destroy(Admin $admin)
     {
-        //
+        $admin->delete();
+        return to_route('pengguna.admin.index')->with('success', 'Data berhasil dihapus');
     }
 }

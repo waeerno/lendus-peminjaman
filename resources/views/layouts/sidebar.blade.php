@@ -89,7 +89,9 @@
 
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('pengguna.klien.index') }}" class="nav-link {{ request()->routeIs('pengguna.klien.*') ? 'text-primary' : '' }}">Klien</a>
+                                <a href="{{ route('pengguna.client.index') }}" class="nav-link {{ request()->routeIs('pengguna.client.*') ? 'text-primary' : '' }}">Klien</a>
+
+
                             </li>
                         </ul>
                     </div>

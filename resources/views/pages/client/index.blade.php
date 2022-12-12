@@ -1,82 +1,65 @@
 @extends('layouts.master')
-@section('title') @lang('translation.starter') @endsection
+@section('title') Client @endsection
 @section('css')
 <link href="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 @section('content')
 @component('components.breadcrumb')
-@slot('li_1') Data @endslot
-@slot('title') Kategori @endslot
+@slot('li_1') Pengguna @endslot
+@slot('title') Client @endslot
 @endcomponent
-
 @include('components.alerts')
-<div class="row">
-    <div class="pb-4">
-        <a href="{{ route('master.kategori.create') }}" type="button" class="btn btn-primary btn-label waves-effect waves-light float-end">
+
+<div class="table-responsive">
+    <div class="float-end pb-4">
+        <a href="{{ route('master.unit.create') }}" type="button" class="btn btn-primary btn-label waves-effect waves-light">
             <i class="ri-add-fill label-icon align-middle fs-16 me-2"></i> Tambah
         </a>
     </div>
-    @foreach ($data as $item)
-    <div class="col-xxl-3 col-sm-6 project-card">
+    <table class="table align-middle mb-0">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Pimpinan</th>
+                <th scope="col" class="text-end">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($data as $item)
+            <tr>
+                <th scope="row">{{ $loop->index +1 }}</th>
+                <td>{{ $item->nama }}</td>
+                <td>
+                    <h6 class="text-primary mb-0">{{ $item->pimpinan }}</h6>
+                    <span class="text-muted">
+                        {{ $item->nip }}
+                    </span>
+                </td>
+                <td class="text-end">
+                    <a href="{{ route('master.unit.edit', $item->id) }}" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data">
+                        <i class="ri-edit-2-line"></i>
+                    </a>
 
-        <div class="card card-height-100">
-            <div class="card-body">
-                <div class="d-flex flex-column h-100">
-                    <div class="d-flex">
-                        <div class="flex-grow-1">
-                            <p class="text-muted mb-4">Update {{ $item->updated_at->diffForHumans() }}</p>
-                        </div>
-                    </div>
-                    <div class="d-flex mb-2">
-                        <div class="flex-grow-1">
-                            <p class="text-muted text-truncate-two-lines mb-1">Kategori</p>
-                            <h5 class="mb-3 fs-15">
-                                <a href="{{ route('master.kategori.edit', $item->id) }}" class="text-dark">
-                                    {{ $item->nama }}.
-                                </a>
-                            </h5>
-                        </div>
-                    </div>
-                    <div class="mt-auto">
-                        <div class="float-end">
-                            <a href="{{ route('master.kategori.edit', $item->id) }}" class="btn btn-outline-primary waves-effect waves-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data"> <i class="ri-edit-2-line"></i></a>
-                            {{-- <button type="button"
-                                class="btn btn-outline-danger waves-effect waves-light">Hapus</button> --}}
+                    <a href="#" class="btn btn-sm btn-danger" onclick="confirmDelete({{ $item->id }})" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data">
+                        <form action="{{ route('master.unit.destroy', $item->id) }}" method="POST" id="delete-{{ $item->id }}">
+                            @csrf
+                            @method('DELETE')
+                        </form>
+                        <i class="ri-delete-bin-2-line"></i>
+                    </a>
+                </td>
+            </tr>
+            @empty
+            <tr>
+                <td colspan="4" class="text-center"><span class="text-danger">Belum Ada Data</span></td>
+            </tr>
+            @endforelse
 
-                            <a href="#" class="btn btn-outline-danger waves-effect waves-light" onclick="confirmDelete({{ $item->id }})" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data">
-                                <form action="{{ route('master.kategori.destroy', $item->id) }}" method="POST" id="delete-{{ $item->id }}">
-                                    @csrf
-                                    @method('DELETE')
-                                </form>
-                                <i class="ri-delete-bin-2-line"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <!-- end card body -->
-            <div class="card-footer bg-transparent border-top-dashed py-2">
-                <div class="d-flex align-items-center">
-                    <div class="flex-grow-1"></div>
-                    <div class="flex-shrink-0">
-                        <div class="text-muted">
-                            <i class="ri-calendar-event-fill me-1 align-bottom"></i> {{
-                            $item->created_at->isoFormat('dddd, D MMM Y') }}
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-            <!-- end card footer -->
-        </div>
-        <!-- end card -->
-    </div>
-    @endforeach
-    <!-- end col -->
+        </tbody>
+    </table>
+    <!-- end table -->
 </div>
-
 <!-- end table responsive -->
 @endsection
 @section('script')
@@ -163,11 +146,3 @@
         }, 4000); // 5 secs
 
     });
-
-</script>
-
-<script src="{{ URL::asset('/assets/js/app.min.js') }}"></script>
-<script src="{{ URL::asset('assets/libs/prismjs/prismjs.min.js') }}"></script>
-
-
-@endsection
