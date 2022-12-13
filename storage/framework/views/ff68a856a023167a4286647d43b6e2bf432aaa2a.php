@@ -39,7 +39,7 @@
                     <i class="ri-edit-2-line"></i>
                 </a>
 
-                <a href="#" class="btn btn-sm btn-danger" onclick="confirmDelete(<?php echo e($item->id); ?>)" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data">
+                <a href="#" class="btn btn-sm btn-danger" onclick="confirmDelete(<?php echo e($item->admin->id); ?>)" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data">
                     <form action="<?php echo e(route('pengguna.admin.destroy', $item->id)); ?>" method="POST" id="delete-<?php echo e($item->id); ?>">
                         <?php echo csrf_field(); ?>
                         <?php echo method_field('DELETE'); ?>
