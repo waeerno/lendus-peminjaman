@@ -1,20 +1,19 @@
-@extends('layouts.master')
-@section('title') Client @endsection
-@section('css')
-<link href="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
+<?php $__env->startSection('title'); ?> Client <?php $__env->stopSection(); ?>
+<?php $__env->startSection('css'); ?>
+<link href="<?php echo e(URL::asset('assets/libs/sweetalert2/sweetalert2.min.css')); ?>" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"">
-@endsection
-@section('content')
-@component('components.breadcrumb')
-@slot('li_1') Pengguna @endslot
-@slot('title') Client @endslot
-@endcomponent
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+<?php $__env->startComponent('components.breadcrumb'); ?>
+<?php $__env->slot('li_1'); ?> Pengguna <?php $__env->endSlot(); ?>
+<?php $__env->slot('title'); ?> Client <?php $__env->endSlot(); ?>
+<?php echo $__env->renderComponent(); ?>
 
-@include('components.alerts')
+<?php echo $__env->make('components.alerts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <div class=" table-responsive">
 <div class="float-end pb-4">
-    <a href="{{ route('pengguna.client.create') }}" type="button" class="btn btn-primary btn-label waves-effect waves-light">
+    <a href="<?php echo e(route('pengguna.client.create')); ?>" type="button" class="btn btn-primary btn-label waves-effect waves-light">
         <i class="ri-add-fill label-icon align-middle fs-16 me-2"></i> Tambah
     </a>
 </div>
@@ -32,49 +31,49 @@
         </tr>
     </thead>
     <tbody>
-        @forelse ($data as $item)
+        <?php $__empty_1 = true; $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
         <tr>
-            <th scope="row">{{ $loop->index +1 }}</th>
-            <td>{{ $item->no_induk }}</td>
-            <td>{{ $item->nama }}</td>
-            <td>{{ $item->no_wa }}</td>
-            <td>{{ $item->email }}</td>
-            <td>{{ $item->unit->nama }}</td>
-            <td>{{ $item->jenis }}</td>
+            <th scope="row"><?php echo e($loop->index +1); ?></th>
+            <td><?php echo e($item->no_induk); ?></td>
+            <td><?php echo e($item->nama); ?></td>
+            <td><?php echo e($item->no_wa); ?></td>
+            <td><?php echo e($item->email); ?></td>
+            <td><?php echo e($item->unit->nama); ?></td>
+            <td><?php echo e($item->jenis); ?></td>
             <td class="text-end">
-                <a href="{{ route('pengguna.client.edit', $item->id) }}" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data">
+                <a href="<?php echo e(route('pengguna.client.edit', $item->id)); ?>" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data">
                     <i class="ri-edit-2-line"></i>
                 </a>
-                <a href="#" class="btn btn-sm btn-danger" onclick="confirmDelete({{ $item->id }})" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data">
-                    <form action="{{ route('pengguna.client.destroy', $item->id) }}" method="POST" id="delete-{{ $item->id }}">
-                        @csrf
-                        @method('DELETE')
+                <a href="#" class="btn btn-sm btn-danger" onclick="confirmDelete(<?php echo e($item->id); ?>)" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data">
+                    <form action="<?php echo e(route('pengguna.client.destroy', $item->id)); ?>" method="POST" id="delete-<?php echo e($item->id); ?>">
+                        <?php echo csrf_field(); ?>
+                        <?php echo method_field('DELETE'); ?>
                     </form>
                     <i class="ri-delete-bin-2-line"></i>
                 </a>
             </td>
 
         </tr>
-        @empty
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
         <tr>
             <td colspan="9" class="text-center"><span class="text-danger">Belum Ada Data</span></td>
         </tr>
-        @endforelse
+        <?php endif; ?>
 
     </tbody>
 </table>
 <!-- end table -->
 </div>
 <!-- end table responsive -->
-@endsection
-@section('script')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
 </script>
 
-<script src="{{ URL::asset('/assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+<script src="<?php echo e(URL::asset('/assets/libs/sweetalert2/sweetalert2.min.js')); ?>"></script>
 
-{{-- Delete Data Sweet Alert --}}
+
 <script>
     const confirmDelete = id => {
         Swal.fire({
@@ -108,10 +107,10 @@
 </script>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-@if(Session::has('success'))
+<?php if(Session::has('success')): ?>
 <script>
     Toastify({
-        text: "{{ session()->get('success') }}"
+        text: "<?php echo e(session()->get('success')); ?>"
         , duration: 5000
         , close: true
         , gravity: "top", // `top` or `bottom`
@@ -125,12 +124,12 @@
     }).showToast();
 
 </script>
-@endif
+<?php endif; ?>
 
-@if(Session::has('error'))
+<?php if(Session::has('error')): ?>
 <script>
     Toastify({
-        text: "{{ session()->get('error') }}"
+        text: "<?php echo e(session()->get('error')); ?>"
         , duration: 5000
         , close: true
         , gravity: "top", // `top` or `bottom`
@@ -144,7 +143,7 @@
     }).showToast();
 
 </script>
-@endif
+<?php endif; ?>
 
 <script>
     $("document").ready(function() {
@@ -155,6 +154,8 @@
     });
 
 </script>
-<script src="{{ URL::asset('/assets/js/app.min.js') }}"></script>
+<script src="<?php echo e(URL::asset('/assets/js/app.min.js')); ?>"></script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\lendus-velzon\resources\views/pages/client/index.blade.php ENDPATH**/ ?>

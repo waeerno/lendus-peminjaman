@@ -19,7 +19,7 @@
 
                     <div class="col-md-6">
                         <label for="fullnameInput" class="form-label">Nama</label>
-                        <input type="text" name="nama" id="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ old('nama') ?? $data->nama }}">
+                        <input type="text" name="nama" id="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ old('nama') ?? $data->user->nama }}">
 
                         @error('nama')
                         <div class="invalid-feedback">
@@ -30,7 +30,7 @@
                     </div>
                     <div class="col-md-6">
                         <label for="fullnameInput" class="form-label">Email</label>
-                        <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') ?? $data->email }}">
+                        <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') ?? $data->user->email }}">
 
                         @error('email')
                         <div class="invalid-feedback">
@@ -70,7 +70,19 @@
                         @enderror
                     </div>
 
+                    <div class="col-md-12">
+                        <label for="fullnameInput" class="form-label">Password</label>
+                        <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" value="{{ old('password') }}">
 
+                        @error('password')
+                        <div class=" invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
+
+                    <input type="hidden" value="{{ $data->user_id }}" name="user_id">
 
                     <div class="col-12">
                         <div class="grid g-3 float-end">

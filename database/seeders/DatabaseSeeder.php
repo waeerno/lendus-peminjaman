@@ -20,9 +20,9 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UnitSeeder::class,
             UserSeeder::class,
-            OperatorSeeder::class,
             KategoriSeeder::class,
             AssetSeeder::class,
+            ClientSeeder::class,
         ]);
     }
 }

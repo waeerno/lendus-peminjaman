@@ -34,18 +34,13 @@
             <th scope="row">{{ $loop->index +1 }}</th>
             <td>{{ $item->nama }}</td>
             <td>{{ $item->email }}</td>
-            <td>{{ $item->no_wa }}</td>
+            <td>{{ $item->admin->no_wa }}</td>
             <td class="text-end">
-                <a href="{{ route('pengguna.admin.edit', $item->id) }}" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data">
+                <a href="{{ route('pengguna.admin.edit', $item->admin->id) }}" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data">
                     <i class="ri-edit-2-line"></i>
                 </a>
 
-                <a href="{{ route('pengguna.admin.password', $item->id) }}" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data">
-                    <i class=" ri-lock-password-line"></i>
-                </a>
-
-
-                <a href="#" class="btn btn-sm btn-danger" onclick="confirmDelete({{ $item->id }})" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data">
+                <a href="#" class="btn btn-sm btn-danger" onclick="confirmDelete({{ $item->admin->id }})" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data">
                     <form action="{{ route('pengguna.admin.destroy', $item->id) }}" method="POST" id="delete-{{ $item->id }}">
                         @csrf
                         @method('DELETE')

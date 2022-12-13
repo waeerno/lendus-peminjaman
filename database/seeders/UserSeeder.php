@@ -27,13 +27,11 @@ class UserSeeder extends Seeder
         // ]);
 
         User::create([
-            'unit_id' => '1',
-            'name' => 'admin',
+            'nama' => 'admin',
             'email' => 'admin@themesbrand.com',
             'password' => Hash::make('123456'),
             'email_verified_at' => '2022-01-02 17:04:58',
-            'avatar' => 'avatar-1.jpg',
             'created_at' => now(),
-        ]);
+        ])->assignRole('Operator');
     }
 }

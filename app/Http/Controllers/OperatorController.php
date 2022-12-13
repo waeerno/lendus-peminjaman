@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Operator;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class OperatorController extends Controller
 {
@@ -14,10 +17,9 @@ class OperatorController extends Controller
      */
     public function index()
     {
-        // echo "test";
-        // die;
+        // $data = User::with('roles')->get();
         return view('pages.operator.index', [
-            'data' => Operator::get()
+            'data' => User::Role('operator')->get(),
         ]);
     }
 
@@ -41,7 +43,7 @@ class OperatorController extends Controller
     {
         $data = $request->all();
         $data['password'] = bcrypt($request->password);
-        Operator::create($data);
+        User::create($data)->assignRole('Operator');
 
         return to_route('pengguna.operator.index')->with('success', 'Data berhasil ditambahkan');
     }
@@ -54,14 +56,14 @@ class OperatorController extends Controller
      * @param  \App\Models\Operator  $operator
      * @return \Illuminate\Http\Response
      */
-    public function edit(Operator $operator)
+    public function edit(User $operator)
     {
         return view('pages.operator.edit', [
             'data' => $operator
         ]);
     }
 
-    public function password(Operator $operator)
+    public function password(User $operator)
     {
         return view('pages.operator.password', [
             'data' => $operator
@@ -75,9 +77,10 @@ class OperatorController extends Controller
      * @param  \App\Models\Operator  $operator
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Operator $operator)
+    public function update(Request $request, User $operator)
     {
         $data = $request->all();
+        $request->has('password') ? $data['password'] = Hash::make($request->password) : '';
         $operator->update($data);
 
         return to_route('pengguna.operator.index')->with('success', 'Data berhasil diubah');
@@ -89,10 +92,12 @@ class OperatorController extends Controller
      * @param  mixed $request
      * @return void
      */
-    public function updatePassword(Request $request, Operator $operator)
+    public function changePassword(Request $request)
     {
-        $data = $request->all();
-        $operator->update($data);
+        dd($request->all);
+        User::findOrFail(Auth::user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
 
         return to_route('pengguna.operator.index')->with('success', 'Password berhasil diubah');
     }
@@ -103,7 +108,7 @@ class OperatorController extends Controller
      * @param  \App\Models\Operator  $operator
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Operator $operator)
+    public function destroy(User $operator)
     {
         $operator->delete();
         return to_route('pengguna.operator.index')->with('success', 'Data berhasil dihapus');

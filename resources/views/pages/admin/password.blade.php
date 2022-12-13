@@ -8,12 +8,14 @@
 <div class="col-12">
     <div class="card">
         <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Admin</h4>
+            <h4 class="card-title mb-0 flex-grow-1">Admin {{ $data->id }}</h4>
+
         </div><!-- end card header -->
 
         <div class="card-body">
             <div class="live-preview">
-                <form action="{{ route('pengguna.admin.password-update', $data->id) }}" method="post" class="row g-3">
+                <form action="{{ route('admin.password', $data->id) }}" method="post" class="row g-3">
+
                     @csrf
                     @method('PUT')
 
@@ -27,6 +29,8 @@
                         </div>
                         @enderror
                     </div>
+
+                    <input type="hidden" name="user_id" value="{{ $data->user_id }}">
 
                     <div class="col-12">
                         <div class="grid g-3 float-end">

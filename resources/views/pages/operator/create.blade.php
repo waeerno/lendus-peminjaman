@@ -53,7 +53,7 @@
 
                     <div class="col-12">
                         <div class="grid g-3 float-end">
-                            <a href="{{ route('master.unit.index') }}" class="btn btn-light">Kembali</a>
+                            <a href="{{ route('pengguna.operator.index') }}" class="btn btn-light">Kembali</a>
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </div>

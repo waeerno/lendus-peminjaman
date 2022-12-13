@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\Unit;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -15,8 +18,9 @@ class AdminController extends Controller
      */
     public function index()
     {
+        // dd(User::Role('admin')->get());
         return view('pages.admin.index', [
-            'data' => Admin::all(),
+            'data' => User::Role('admin')->get(),
         ]);
     }
 
@@ -40,9 +44,19 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $data['password'] = bcrypt($request->password);
-        Admin::create($data);
+        $user = new User;
+        $user->nama = $request->nama;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->assignRole('Admin');
+
+        $user->save();
+
+        $admin = new Admin;
+        $admin->user_id = $user->id;
+        $admin->unit_id = $request->unit_id;
+        $admin->no_wa = $request->no_wa;
+        $admin->save();
 
         return to_route('pengguna.admin.index')->with('success', 'Data berhasil ditambahkan');
     }
@@ -69,6 +83,7 @@ class AdminController extends Controller
      */
     public function password(Admin $admin)
     {
+        // dd($admin);
         return view('pages.admin.password', [
             'data' => $admin
         ]);
@@ -86,6 +101,12 @@ class AdminController extends Controller
         $data = $request->all();
         $admin->update($data);
 
+        $user = User::findOrFail($request->user_id);
+        $user->nama = $request->nama;
+        $user->email = $request->email;
+        $request->has('password') ? $user->password = Hash::make($request->password) : '';
+        $user->update();
+
         return to_route('pengguna.admin.index')->with('success', 'Data berhasil diubah');
     }
 
@@ -96,10 +117,11 @@ class AdminController extends Controller
      * @param  mixed $operator
      * @return void
      */
-    public function updatePassword(Request $request, Admin $admin)
+    public function changePassword(Request $request)
     {
-        $data = $request->all();
-        $admin->update($data);
+        User::findOrFail(Auth::user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
 
         return to_route('pengguna.admin.index')->with('success', 'Password berhasil diubah');
     }

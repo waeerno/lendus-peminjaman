@@ -13,7 +13,8 @@
 
         <div class="card-body">
             <div class="live-preview">
-                <form action="{{ route('pengguna.operator.password-update', $data->id) }}" method="post" class="row g-3">
+                <form action="{{ route('profile.password', $data->id) }}" method="post" class="row g-3">
+
                     @csrf
                     @method('PUT')
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PeminjamanRequest;
 use App\Models\Asset;
+use App\Models\Client;
 use App\Models\Peminjaman;
 use App\Models\User;
 use Carbon\Carbon;
@@ -20,8 +21,8 @@ class PeminjamanController extends Controller
     {
         return view('pages.peminjaman.index', [
             'data' => Peminjaman::where('keputusan', NULL)->orderBy('id', 'desc')->get(),
-            'user' => User::get(),
-            'asset' => Asset::get(),
+            // 'user' => Client::get(),
+            // 'asset' => Asset::get(),
         ]);
     }
 
@@ -34,7 +35,7 @@ class PeminjamanController extends Controller
     {
         return view('pages.peminjaman.create', [
             'asset' => Asset::orderBy('id', 'desc')->get(),
-            'user' => User::get()
+            'user' => Client::get()
         ]);
     }
 

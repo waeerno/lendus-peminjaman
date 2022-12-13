@@ -7,12 +7,14 @@
 <div class="col-12">
     <div class="card">
         <div class="card-header align-items-center d-flex">
-            <h4 class="card-title mb-0 flex-grow-1">Admin</h4>
+            <h4 class="card-title mb-0 flex-grow-1">Admin <?php echo e($data->id); ?></h4>
+
         </div><!-- end card header -->
 
         <div class="card-body">
             <div class="live-preview">
-                <form action="<?php echo e(route('pengguna.admin.password-update', $data->id)); ?>" method="post" class="row g-3">
+                <form action="<?php echo e(route('admin.password', $data->id)); ?>" method="post" class="row g-3">
+
                     <?php echo csrf_field(); ?>
                     <?php echo method_field('PUT'); ?>
 
@@ -41,6 +43,8 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
+
+                    <input type="hidden" name="user_id" value="<?php echo e($data->user_id); ?>">
 
                     <div class="col-12">
                         <div class="grid g-3 float-end">

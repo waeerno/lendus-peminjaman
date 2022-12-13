@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ClientRequest;
+use App\Models\Client;
+use App\Models\Unit;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -14,8 +17,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view("pages.client.index", [
-            'data' => User::get()
+        return view('pages.client.index', [
+            'data' => Client::get()
         ]);
     }
 
@@ -26,7 +29,9 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.client.create', [
+            'unit' => Unit::get(),
+        ]);
     }
 
     /**
@@ -35,20 +40,12 @@ class ClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClientRequest $request)
     {
-        //
-    }
+        $data = $request->all();
+        Client::create($data);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return to_route('pengguna.client.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -57,9 +54,12 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Client $client)
     {
-        //
+        return view('pages.client.edit', [
+            'data' => $client,
+            'unit' => Unit::get(),
+        ]);
     }
 
     /**
@@ -69,9 +69,13 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ClientRequest $request, Client $client)
     {
-        //
+
+        $data = $request->all();
+        $client->update($data);
+
+        return to_route('pengguna.client.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -80,8 +84,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Client $client)
     {
-        //
+        $client->delete();
+        return to_route('pengguna.client.index')->with('success', 'Data berhasil dihapus');
     }
 }

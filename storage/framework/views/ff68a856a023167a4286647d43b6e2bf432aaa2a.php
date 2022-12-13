@@ -33,16 +33,11 @@
             <th scope="row"><?php echo e($loop->index +1); ?></th>
             <td><?php echo e($item->nama); ?></td>
             <td><?php echo e($item->email); ?></td>
-            <td><?php echo e($item->no_wa); ?></td>
+            <td><?php echo e($item->admin->no_wa); ?></td>
             <td class="text-end">
-                <a href="<?php echo e(route('pengguna.admin.edit', $item->id)); ?>" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data">
+                <a href="<?php echo e(route('pengguna.admin.edit', $item->admin->id)); ?>" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data">
                     <i class="ri-edit-2-line"></i>
                 </a>
-
-                <a href="<?php echo e(route('pengguna.admin.password', $item->id)); ?>" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Data">
-                    <i class=" ri-lock-password-line"></i>
-                </a>
-
 
                 <a href="#" class="btn btn-sm btn-danger" onclick="confirmDelete(<?php echo e($item->id); ?>)" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Data">
                     <form action="<?php echo e(route('pengguna.admin.destroy', $item->id)); ?>" method="POST" id="delete-<?php echo e($item->id); ?>">

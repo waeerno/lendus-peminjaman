@@ -46,13 +46,13 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->name('pengguna.')->group(function () {
     Route::resource('operator', OperatorController::class)->except('show');
-    Route::get('operator-password', [OperatorController::class, 'password'])->name('operator.password');
-    Route::put('operator-store-password', [OperatorController::class, 'updatePassword'])->name('operator.password-update');
+    Route::get('operator-password/{$id}', [OperatorController::class, 'password'])->name('operator.password');
     Route::resource('admin', AdminController::class)->except('show');
-    Route::get('admin-password', [AdminController::class, 'password'])->name('admin.password');
-    Route::put('admin-store-password', [AdminController::class, 'updatePassword'])->name('admin.password-update');
+    Route::get('admin/{admin}/password', [AdminController::class, 'password'])->name('admin.password');
     Route::resource('client', ClientController::class)->except('show');
 });
+Route::put('operator/changePassword', [OperatorController::class, 'changePassword'])->name('operator.password');
+Route::put('admin/changePassword/', [AdminController::class, 'changePassword'])->name('admin.password');
 
 // Route::get('getJumlah/{id}', function ($id) {
 //     $course = Asset::where('id', $id)->get();

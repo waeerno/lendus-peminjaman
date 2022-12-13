@@ -41,6 +41,19 @@
 
                     </div>
 
+                    <div class="col-md-12">
+                        <label for="fullnameInput" class="form-label">Password</label>
+                        <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" value="{{ old('password') }}">
+
+                        @error('password')
+                        <div class=" invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+
+
+
                     <div class="col-12">
                         <div class="grid g-3 float-end">
                             <a href="{{ route('master.unit.index') }}" class="btn btn-light">Kembali</a>

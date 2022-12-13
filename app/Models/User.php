@@ -20,7 +20,7 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
+        'nama',
         'email',
         'password',
         'avatar',
@@ -45,6 +45,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // TODO:pindahin ke client
-
+    public function admin()
+    {
+        return $this->hasOne(Admin::class);
+    }
 }

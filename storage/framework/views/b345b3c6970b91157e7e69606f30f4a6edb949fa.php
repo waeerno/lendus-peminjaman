@@ -97,7 +97,7 @@ unset($__errorArgs, $__bag); ?>
 
                     <div class="col-12">
                         <div class="grid g-3 float-end">
-                            <a href="<?php echo e(route('master.unit.index')); ?>" class="btn btn-light">Kembali</a>
+                            <a href="<?php echo e(route('pengguna.operator.index')); ?>" class="btn btn-light">Kembali</a>
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </div>

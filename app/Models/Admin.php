@@ -11,9 +11,7 @@ class Admin extends Model
     use HasFactory, HasRoles;
 
     protected $fillable = [
-        'email',
-        'nama',
-        'password',
+        'user_id',
         'unit_id',
         'no_wa',
     ];
@@ -22,6 +20,11 @@ class Admin extends Model
         'password',
         'remember_token',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function peminjaman()
     {
