@@ -14,14 +14,14 @@
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="firstNameinput" class="form-label">Nama</label>
-                                <input type="text" class="form-control" value="{{ $item->user->name }}">
+                                <input type="text" class="form-control" value="{{ $item->client->nama }}">
                             </div>
                         </div>
                         <!--end col-->
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="lastNameinput" class="form-label">Unit</label>
-                                <input type="text" class="form-control" value="{{ $item->user->unit->nama }}">
+                                <input type="text" class="form-control" value="{{ $item->client->unit->nama }}">
                             </div>
                         </div>
                         <!--end col-->

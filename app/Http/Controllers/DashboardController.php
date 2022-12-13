@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Peminjaman;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -24,6 +25,11 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('pages.dashboard.index');
+        $a = Peminjaman::where('mulai_pakai', now()->month)->count();
+        dd($a);
+
+        return view('pages.dashboard.index', [
+            'frekuensi_peminjaman' => $a,
+        ]);
     }
 }

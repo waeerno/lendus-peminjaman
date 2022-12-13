@@ -49,7 +49,7 @@ class PeminjamanController extends Controller
     {
         $data = new Peminjaman;
 
-        $data->user_id = $request->pengguna;
+        $data->client_id = $request->pengguna;
         $data->asset_id = $request->asset;
         $data->mulai_pakai = $request->pakai;
         $data->durasi = $request->durasi;

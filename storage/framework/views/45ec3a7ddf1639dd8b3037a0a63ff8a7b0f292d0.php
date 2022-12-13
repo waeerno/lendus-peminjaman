@@ -19,15 +19,13 @@
                             </div>
                             <div class="flex-grow-1 overflow-hidden ms-3">
                                 <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
-                                    Active Projects</p>
+                                    Frekuensi Peminjaman</p>
                                 <div class="d-flex align-items-center mb-3">
-                                    <h4 class="fs-4 flex-grow-1 mb-0"><span class="counter-value"
-                                            data-target="825">0</span></h4>
-                                    <span class="badge badge-soft-danger fs-12"><i
-                                            class="ri-arrow-down-s-line fs-13 align-middle me-1"></i>5.02
+                                    <h4 class="fs-4 flex-grow-1 mb-0"><span class="counter-value" data-target="825">0</span></h4>
+                                    <span class="badge badge-soft-danger fs-12"><i class="ri-arrow-down-s-line fs-13 align-middle me-1"></i>5.02
                                         %</span>
                                 </div>
-                                <p class="text-muted text-truncate mb-0">Projects this month</p>
+                                <p class="text-muted text-truncate mb-0">Peminjaman Bulan ini</p>
                             </div>
                         </div>
                     </div><!-- end card body -->
@@ -46,10 +44,8 @@
                             <div class="flex-grow-1 ms-3">
                                 <p class="text-uppercase fw-medium text-muted mb-3">New Leads</p>
                                 <div class="d-flex align-items-center mb-3">
-                                    <h4 class="fs-4 flex-grow-1 mb-0"><span class="counter-value"
-                                            data-target="7522">0</span></h4>
-                                    <span class="badge badge-soft-success fs-12"><i
-                                            class="ri-arrow-up-s-line fs-13 align-middle me-1"></i>3.58
+                                    <h4 class="fs-4 flex-grow-1 mb-0"><span class="counter-value" data-target="7522">0</span></h4>
+                                    <span class="badge badge-soft-success fs-12"><i class="ri-arrow-up-s-line fs-13 align-middle me-1"></i>3.58
                                         %</span>
                                 </div>
                                 <p class="text-muted mb-0">Leads this month</p>
@@ -72,11 +68,8 @@
                                 <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
                                     Total Hours</p>
                                 <div class="d-flex align-items-center mb-3">
-                                    <h4 class="fs-4 flex-grow-1 mb-0"><span class="counter-value"
-                                            data-target="168">0</span>h <span class="counter-value"
-                                            data-target="40">0</span>m</h4>
-                                    <span class="badge badge-soft-danger fs-12"><i
-                                            class="ri-arrow-down-s-line fs-13 align-middle me-1"></i>10.35
+                                    <h4 class="fs-4 flex-grow-1 mb-0"><span class="counter-value" data-target="168">0</span>h <span class="counter-value" data-target="40">0</span>m</h4>
+                                    <span class="badge badge-soft-danger fs-12"><i class="ri-arrow-down-s-line fs-13 align-middle me-1"></i>10.35
                                         %</span>
                                 </div>
                                 <p class="text-muted text-truncate mb-0">Work this month</p>
@@ -133,8 +126,7 @@
                             <!--end col-->
                             <div class="col-6 col-sm-3">
                                 <div class="p-3 border border-dashed border-start-0 border-end-0">
-                                    <h5 class="mb-1 text-success"><span class="counter-value"
-                                            data-target="10589">0</span>h</h5>
+                                    <h5 class="mb-1 text-success"><span class="counter-value" data-target="10589">0</span>h</h5>
                                     <p class="text-muted mb-0">Working Hours</p>
                                 </div>
                             </div>
@@ -143,9 +135,7 @@
                     </div><!-- end card header -->
                     <div class="card-body p-0 pb-2">
                         <div>
-                            <div id="projects-overview-chart"
-                                data-colors='["--vz-primary", "--vz-primary-rgb, 0.1", "--vz-primary-rgb, 0.50"]'
-                                dir="ltr" class="apex-charts"></div>
+                            <div id="projects-overview-chart" data-colors='["--vz-primary", "--vz-primary-rgb, 0.1", "--vz-primary-rgb, 0.50"]' dir="ltr" class="apex-charts"></div>
                         </div>
                     </div><!-- end card body -->
                 </div><!-- end card -->
@@ -160,8 +150,7 @@
             </div><!-- end cardheader -->
             <div class="card-body pt-0">
                 <div class="upcoming-scheduled">
-                    <input type="text" class="form-control" data-provider="flatpickr" data-date-format="d M, Y"
-                        data-deafult-date="today" data-inline-date="true">
+                    <input type="text" class="form-control" data-provider="flatpickr" data-date-format="d M, Y" data-deafult-date="today" data-inline-date="true">
                 </div>
 
                 <h6 class="text-uppercase fw-semibold mt-4 mb-3 text-muted">Events:</h6>
@@ -259,8 +248,7 @@
                             <tr>
                                 <td class="fw-medium">Brand Logo Design</td>
                                 <td>
-                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-1.jpg')); ?>"
-                                        class="avatar-xxs rounded-circle me-1" alt="">
+                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-1.jpg')); ?>" class="avatar-xxs rounded-circle me-1" alt="">
                                     <a href="javascript: void(0);" class="text-reset">Donald
                                         Risher</a>
                                 </td>
@@ -268,9 +256,7 @@
                                     <div class="d-flex align-items-center">
                                         <div class="flex-shrink-0 me-1 text-muted fs-13">53%</div>
                                         <div class="progress progress-sm  flex-grow-1" style="width: 68%;">
-                                            <div class="progress-bar bg-primary rounded" role="progressbar"
-                                                style="width: 53%" aria-valuenow="53" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
+                                            <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 53%" aria-valuenow="53" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </td>
@@ -278,20 +264,17 @@
                                     <div class="avatar-group flex-nowrap">
                                         <div class="avatar-group-item">
                                             <a href="javascript: void(0);" class="d-inline-block">
-                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-1.jpg')); ?>" alt=""
-                                                    class="rounded-circle avatar-xxs">
+                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-1.jpg')); ?>" alt="" class="rounded-circle avatar-xxs">
                                             </a>
                                         </div>
                                         <div class="avatar-group-item">
                                             <a href="javascript: void(0);" class="d-inline-block">
-                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-2.jpg')); ?>" alt=""
-                                                    class="rounded-circle avatar-xxs">
+                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-2.jpg')); ?>" alt="" class="rounded-circle avatar-xxs">
                                             </a>
                                         </div>
                                         <div class="avatar-group-item">
                                             <a href="javascript: void(0);" class="d-inline-block">
-                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-3.jpg')); ?>" alt=""
-                                                    class="rounded-circle avatar-xxs">
+                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-3.jpg')); ?>" alt="" class="rounded-circle avatar-xxs">
                                             </a>
                                         </div>
                                     </div>
@@ -302,8 +285,7 @@
                             <tr>
                                 <td class="fw-medium">Redesign - Landing Page</td>
                                 <td>
-                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-2.jpg')); ?>"
-                                        class="avatar-xxs rounded-circle me-1" alt="">
+                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-2.jpg')); ?>" class="avatar-xxs rounded-circle me-1" alt="">
                                     <a href="javascript: void(0);" class="text-reset">Prezy
                                         William</a>
                                 </td>
@@ -311,9 +293,7 @@
                                     <div class="d-flex align-items-center">
                                         <div class="flex-shrink-0 text-muted me-1">0%</div>
                                         <div class="progress progress-sm flex-grow-1" style="width: 68%;">
-                                            <div class="progress-bar bg-primary rounded" role="progressbar"
-                                                style="width: 0%" aria-valuenow="0" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
+                                            <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </td>
@@ -321,14 +301,12 @@
                                     <div class="avatar-group">
                                         <div class="avatar-group-item">
                                             <a href="javascript: void(0);" class="d-inline-block">
-                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-5.jpg')); ?>" alt=""
-                                                    class="rounded-circle avatar-xxs">
+                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-5.jpg')); ?>" alt="" class="rounded-circle avatar-xxs">
                                             </a>
                                         </div>
                                         <div class="avatar-group-item">
                                             <a href="javascript: void(0);" class="d-inline-block">
-                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-6.jpg')); ?>" alt=""
-                                                    class="rounded-circle avatar-xxs">
+                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-6.jpg')); ?>" alt="" class="rounded-circle avatar-xxs">
                                             </a>
                                         </div>
                                     </div>
@@ -339,8 +317,7 @@
                             <tr>
                                 <td class="fw-medium">Multipurpose Landing Template</td>
                                 <td>
-                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-3.jpg')); ?>"
-                                        class="avatar-xxs rounded-circle me-1" alt="">
+                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-3.jpg')); ?>" class="avatar-xxs rounded-circle me-1" alt="">
                                     <a href="javascript: void(0);" class="text-reset">Boonie
                                         Hoynas</a>
                                 </td>
@@ -348,9 +325,7 @@
                                     <div class="d-flex align-items-center">
                                         <div class="flex-shrink-0 text-muted me-1">100%</div>
                                         <div class="progress progress-sm flex-grow-1" style="width: 68%;">
-                                            <div class="progress-bar bg-primary rounded" role="progressbar"
-                                                style="width: 100%" aria-valuenow="100" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
+                                            <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </td>
@@ -358,14 +333,12 @@
                                     <div class="avatar-group">
                                         <div class="avatar-group-item">
                                             <a href="javascript: void(0);" class="d-inline-block">
-                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-7.jpg')); ?>" alt=""
-                                                    class="rounded-circle avatar-xxs">
+                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-7.jpg')); ?>" alt="" class="rounded-circle avatar-xxs">
                                             </a>
                                         </div>
                                         <div class="avatar-group-item">
                                             <a href="javascript: void(0);" class="d-inline-block">
-                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-8.jpg')); ?>" alt=""
-                                                    class="rounded-circle avatar-xxs">
+                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-8.jpg')); ?>" alt="" class="rounded-circle avatar-xxs">
                                             </a>
                                         </div>
                                     </div>
@@ -376,8 +349,7 @@
                             <tr>
                                 <td class="fw-medium">Chat Application</td>
                                 <td>
-                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-5.jpg')); ?>"
-                                        class="avatar-xxs rounded-circle me-1" alt="">
+                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-5.jpg')); ?>" class="avatar-xxs rounded-circle me-1" alt="">
                                     <a href="javascript: void(0);" class="text-reset">Pauline
                                         Moll</a>
                                 </td>
@@ -385,9 +357,7 @@
                                     <div class="d-flex align-items-center">
                                         <div class="flex-shrink-0 text-muted me-1">64%</div>
                                         <div class="progress flex-grow-1 progress-sm" style="width: 68%;">
-                                            <div class="progress-bar bg-primary rounded" role="progressbar"
-                                                style="width: 64%" aria-valuenow="64" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
+                                            <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 64%" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </td>
@@ -395,8 +365,7 @@
                                     <div class="avatar-group">
                                         <div class="avatar-group-item">
                                             <a href="javascript: void(0);" class="d-inline-block">
-                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-2.jpg')); ?>" alt=""
-                                                    class="rounded-circle avatar-xxs">
+                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-2.jpg')); ?>" alt="" class="rounded-circle avatar-xxs">
                                             </a>
                                         </div>
                                     </div>
@@ -407,8 +376,7 @@
                             <tr>
                                 <td class="fw-medium">Create Wireframe</td>
                                 <td>
-                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-6.jpg')); ?>"
-                                        class="avatar-xxs rounded-circle me-1" alt="">
+                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-6.jpg')); ?>" class="avatar-xxs rounded-circle me-1" alt="">
                                     <a href="javascript: void(0);" class="text-reset">James
                                         Bangs</a>
                                 </td>
@@ -416,9 +384,7 @@
                                     <div class="d-flex align-items-center">
                                         <div class="flex-shrink-0 text-muted me-1">77%</div>
                                         <div class="progress flex-grow-1 progress-sm" style="width: 68%;">
-                                            <div class="progress-bar bg-primary rounded" role="progressbar"
-                                                style="width: 77%" aria-valuenow="77" aria-valuemin="0"
-                                                aria-valuemax="100"></div>
+                                            <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 77%" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </td>
@@ -426,20 +392,17 @@
                                     <div class="avatar-group">
                                         <div class="avatar-group-item">
                                             <a href="javascript: void(0);" class="d-inline-block">
-                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-1.jpg')); ?>" alt=""
-                                                    class="rounded-circle avatar-xxs">
+                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-1.jpg')); ?>" alt="" class="rounded-circle avatar-xxs">
                                             </a>
                                         </div>
                                         <div class="avatar-group-item">
                                             <a href="javascript: void(0);" class="d-inline-block">
-                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-6.jpg')); ?>" alt=""
-                                                    class="rounded-circle avatar-xxs">
+                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-6.jpg')); ?>" alt="" class="rounded-circle avatar-xxs">
                                             </a>
                                         </div>
                                         <div class="avatar-group-item">
                                             <a href="javascript: void(0);" class="d-inline-block">
-                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-4.jpg')); ?>" alt=""
-                                                    class="rounded-circle avatar-xxs">
+                                                <img src="<?php echo e(URL::asset('assets/images/users/avatar-4.jpg')); ?>" alt="" class="rounded-circle avatar-xxs">
                                             </a>
                                         </div>
                                     </div>
@@ -453,8 +416,7 @@
 
                 <div class="align-items-center mt-xl-3 mt-4 justify-content-between d-flex">
                     <div class="flex-shrink-0">
-                        <div class="text-muted">Showing <span class="fw-semibold">5</span> of <span
-                                class="fw-semibold">25</span> Results
+                        <div class="text-muted">Showing <span class="fw-semibold">5</span> of <span class="fw-semibold">25</span> Results
                         </div>
                     </div>
                     <ul class="pagination pagination-separated pagination-sm mb-0">
@@ -486,8 +448,7 @@
                 <h4 class="card-title mb-0 flex-grow-1 py-1">My Tasks</h4>
                 <div class="flex-shrink-0">
                     <div class="dropdown card-header-dropdown">
-                        <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
+                        <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="text-muted">All Tasks <i class="mdi mdi-chevron-down ms-1"></i></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
@@ -523,10 +484,8 @@
                                 <td class="text-muted">03 Nov 2021</td>
                                 <td><span class="badge badge-soft-success">Completed</span></td>
                                 <td>
-                                    <a href="javascript: void(0);" class="d-inline-block" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="" data-bs-original-title="Mary Stoner">
-                                        <img src="<?php echo e(URL::asset('assets/images/users/avatar-2.jpg')); ?>" alt=""
-                                            class="rounded-circle avatar-xxs">
+                                    <a href="javascript: void(0);" class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Mary Stoner">
+                                        <img src="<?php echo e(URL::asset('assets/images/users/avatar-2.jpg')); ?>" alt="" class="rounded-circle avatar-xxs">
                                     </a>
                                 </td>
                             </tr><!-- end -->
@@ -542,10 +501,8 @@
                                 <td class="text-muted">17 Nov 2021</td>
                                 <td><span class="badge badge-soft-warning">Progress</span></td>
                                 <td>
-                                    <a href="javascript: void(0);" class="d-inline-block" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="" data-bs-original-title="Den Davis">
-                                        <img src="<?php echo e(URL::asset('assets/images/users/avatar-7.jpg')); ?>" alt=""
-                                            class="rounded-circle avatar-xxs">
+                                    <a href="javascript: void(0);" class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Den Davis">
+                                        <img src="<?php echo e(URL::asset('assets/images/users/avatar-7.jpg')); ?>" alt="" class="rounded-circle avatar-xxs">
                                     </a>
                                 </td>
                             </tr><!-- end -->
@@ -561,10 +518,8 @@
                                 <td class="text-muted">26 Nov 2021</td>
                                 <td><span class="badge badge-soft-success">Completed</span></td>
                                 <td>
-                                    <a href="javascript: void(0);" class="d-inline-block" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="" data-bs-original-title="Alex Brown">
-                                        <img src="<?php echo e(URL::asset('assets/images/users/avatar-6.jpg')); ?>" alt=""
-                                            class="rounded-circle avatar-xxs">
+                                    <a href="javascript: void(0);" class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Alex Brown">
+                                        <img src="<?php echo e(URL::asset('assets/images/users/avatar-6.jpg')); ?>" alt="" class="rounded-circle avatar-xxs">
                                     </a>
                                 </td>
                             </tr><!-- end -->
@@ -580,10 +535,8 @@
                                 <td class="text-muted">10 Dec 2021</td>
                                 <td><span class="badge badge-soft-danger">Pending</span></td>
                                 <td>
-                                    <a href="javascript: void(0);" class="d-inline-block" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="" data-bs-original-title="Prezy Morin">
-                                        <img src="<?php echo e(URL::asset('assets/images/users/avatar-5.jpg')); ?>" alt=""
-                                            class="rounded-circle avatar-xxs">
+                                    <a href="javascript: void(0);" class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Prezy Morin">
+                                        <img src="<?php echo e(URL::asset('assets/images/users/avatar-5.jpg')); ?>" alt="" class="rounded-circle avatar-xxs">
                                     </a>
                                 </td>
                             </tr><!-- end -->
@@ -599,10 +552,8 @@
                                 <td class="text-muted">22 Dec 2021</td>
                                 <td><span class="badge badge-soft-warning">Progress</span></td>
                                 <td>
-                                    <a href="javascript: void(0);" class="d-inline-block" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="" data-bs-original-title="Stine Nielsen">
-                                        <img src="<?php echo e(URL::asset('assets/images/users/avatar-1.jpg')); ?>" alt=""
-                                            class="rounded-circle avatar-xxs">
+                                    <a href="javascript: void(0);" class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Stine Nielsen">
+                                        <img src="<?php echo e(URL::asset('assets/images/users/avatar-1.jpg')); ?>" alt="" class="rounded-circle avatar-xxs">
                                     </a>
                                 </td>
                             </tr><!-- end -->
@@ -618,10 +569,8 @@
                                 <td class="text-muted">31 Dec 2021</td>
                                 <td><span class="badge badge-soft-danger">Pending</span></td>
                                 <td>
-                                    <a href="javascript: void(0);" class="d-inline-block" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="" data-bs-original-title="Jansh William">
-                                        <img src="<?php echo e(URL::asset('assets/images/users/avatar-4.jpg')); ?>" alt=""
-                                            class="rounded-circle avatar-xxs">
+                                    <a href="javascript: void(0);" class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Jansh William">
+                                        <img src="<?php echo e(URL::asset('assets/images/users/avatar-4.jpg')); ?>" alt="" class="rounded-circle avatar-xxs">
                                     </a>
                                 </td>
                             </tr><!-- end -->
@@ -644,8 +593,7 @@
                 <h4 class="card-title mb-0 flex-grow-1">Team Members</h4>
                 <div class="flex-shrink-0">
                     <div class="dropdown card-header-dropdown">
-                        <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
+                        <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="fw-semibold text-uppercase fs-12">Sort by: </span><span class="text-muted">Last
                                 30 Days<i class="mdi mdi-chevron-down ms-1"></i></span>
                         </a>
@@ -676,8 +624,7 @@
                         <tbody>
                             <tr>
                                 <td class="d-flex">
-                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-1.jpg')); ?>" alt=""
-                                        class="avatar-xs rounded-3 me-2">
+                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-1.jpg')); ?>" alt="" class="avatar-xs rounded-3 me-2">
                                     <div>
                                         <h5 class="fs-13 mb-0">Donald Risher</h5>
                                         <p class="fs-12 mb-0 text-muted">Product Manager</p>
@@ -691,14 +638,12 @@
                                     258
                                 </td>
                                 <td style="width:5%;">
-                                    <div id="radialBar_chart_1" data-colors='["--vz-primary"]' data-chart-series="50"
-                                        class="apex-charts" dir="ltr"></div>
+                                    <div id="radialBar_chart_1" data-colors='["--vz-primary"]' data-chart-series="50" class="apex-charts" dir="ltr"></div>
                                 </td>
                             </tr><!-- end tr -->
                             <tr>
                                 <td class="d-flex">
-                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-2.jpg')); ?>" alt=""
-                                        class="avatar-xs rounded-3 me-2">
+                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-2.jpg')); ?>" alt="" class="avatar-xs rounded-3 me-2">
                                     <div>
                                         <h5 class="fs-13 mb-0">Jansh Brown</h5>
                                         <p class="fs-12 mb-0 text-muted">Lead Developer</p>
@@ -711,14 +656,12 @@
                                     105
                                 </td>
                                 <td>
-                                    <div id="radialBar_chart_2" data-colors='["--vz-primary"]' data-chart-series="45"
-                                        class="apex-charts" dir="ltr"></div>
+                                    <div id="radialBar_chart_2" data-colors='["--vz-primary"]' data-chart-series="45" class="apex-charts" dir="ltr"></div>
                                 </td>
                             </tr><!-- end tr -->
                             <tr>
                                 <td class="d-flex">
-                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-7.jpg')); ?>" alt=""
-                                        class="avatar-xs rounded-3 me-2">
+                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-7.jpg')); ?>" alt="" class="avatar-xs rounded-3 me-2">
                                     <div>
                                         <h5 class="fs-13 mb-0">Carroll Adams</h5>
                                         <p class="fs-12 mb-0 text-muted">Lead Designer</p>
@@ -731,14 +674,12 @@
                                     75
                                 </td>
                                 <td>
-                                    <div id="radialBar_chart_3" data-colors='["--vz-primary"]' data-chart-series="75"
-                                        class="apex-charts" dir="ltr"></div>
+                                    <div id="radialBar_chart_3" data-colors='["--vz-primary"]' data-chart-series="75" class="apex-charts" dir="ltr"></div>
                                 </td>
                             </tr><!-- end tr -->
                             <tr>
                                 <td class="d-flex">
-                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-4.jpg')); ?>" alt=""
-                                        class="avatar-xs rounded-3 me-2">
+                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-4.jpg')); ?>" alt="" class="avatar-xs rounded-3 me-2">
                                     <div>
                                         <h5 class="fs-13 mb-0">William Pinto</h5>
                                         <p class="fs-12 mb-0 text-muted">UI/UX Designer</p>
@@ -751,14 +692,12 @@
                                     85
                                 </td>
                                 <td>
-                                    <div id="radialBar_chart_4" data-colors='["--vz-warning"]' data-chart-series="25"
-                                        class="apex-charts" dir="ltr"></div>
+                                    <div id="radialBar_chart_4" data-colors='["--vz-warning"]' data-chart-series="25" class="apex-charts" dir="ltr"></div>
                                 </td>
                             </tr><!-- end tr -->
                             <tr>
                                 <td class="d-flex">
-                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-6.jpg')); ?>" alt=""
-                                        class="avatar-xs rounded-3 me-2">
+                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-6.jpg')); ?>" alt="" class="avatar-xs rounded-3 me-2">
                                     <div>
                                         <h5 class="fs-13 mb-0">Garry Fournier</h5>
                                         <p class="fs-12 mb-0 text-muted">Web Designer</p>
@@ -771,14 +710,12 @@
                                     69
                                 </td>
                                 <td>
-                                    <div id="radialBar_chart_5" data-colors='["--vz-primary"]' data-chart-series="60"
-                                        class="apex-charts" dir="ltr"></div>
+                                    <div id="radialBar_chart_5" data-colors='["--vz-primary"]' data-chart-series="60" class="apex-charts" dir="ltr"></div>
                                 </td>
                             </tr><!-- end tr -->
                             <tr>
                                 <td class="d-flex">
-                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-5.jpg')); ?>" alt=""
-                                        class="avatar-xs rounded-3 me-2">
+                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-5.jpg')); ?>" alt="" class="avatar-xs rounded-3 me-2">
                                     <div>
                                         <h5 class="fs-13 mb-0">Susan Denton</h5>
                                         <p class="fs-12 mb-0 text-muted">Lead Designer</p>
@@ -793,14 +730,12 @@
                                     658
                                 </td>
                                 <td>
-                                    <div id="radialBar_chart_6" data-colors='["--vz-success"]' data-chart-series="85"
-                                        class="apex-charts" dir="ltr"></div>
+                                    <div id="radialBar_chart_6" data-colors='["--vz-success"]' data-chart-series="85" class="apex-charts" dir="ltr"></div>
                                 </td>
                             </tr><!-- end tr -->
                             <tr>
                                 <td class="d-flex">
-                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-3.jpg')); ?>" alt=""
-                                        class="avatar-xs rounded-3 me-2">
+                                    <img src="<?php echo e(URL::asset('assets/images/users/avatar-3.jpg')); ?>" alt="" class="avatar-xs rounded-3 me-2">
                                     <div>
                                         <h5 class="fs-13 mb-0">Joseph Jackson</h5>
                                         <p class="fs-12 mb-0 text-muted">React Developer</p>
@@ -814,8 +749,7 @@
                                     125
                                 </td>
                                 <td>
-                                    <div id="radialBar_chart_7" data-colors='["--vz-primary"]' data-chart-series="70"
-                                        class="apex-charts" dir="ltr"></div>
+                                    <div id="radialBar_chart_7" data-colors='["--vz-primary"]' data-chart-series="70" class="apex-charts" dir="ltr"></div>
                                 </td>
                             </tr><!-- end tr -->
                         </tbody><!-- end tbody -->
@@ -831,23 +765,17 @@
                 <h4 class="card-title mb-0 flex-grow-1">Chat</h4>
                 <div class="flex-shrink-0">
                     <div class="dropdown card-header-dropdown">
-                        <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            <span class="text-muted"><i class="ri-settings-4-line align-bottom me-1"></i>Setting <i
-                                    class="mdi mdi-chevron-down ms-1"></i></span>
+                        <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="text-muted"><i class="ri-settings-4-line align-bottom me-1"></i>Setting <i class="mdi mdi-chevron-down ms-1"></i></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
-                            <a class="dropdown-item" href="#"><i
-                                    class="ri-user-2-fill align-bottom text-muted me-2"></i> View
+                            <a class="dropdown-item" href="#"><i class="ri-user-2-fill align-bottom text-muted me-2"></i> View
                                 Profile</a>
-                            <a class="dropdown-item" href="#"><i
-                                    class="ri-inbox-archive-line align-bottom text-muted me-2"></i>
+                            <a class="dropdown-item" href="#"><i class="ri-inbox-archive-line align-bottom text-muted me-2"></i>
                                 Archive</a>
-                            <a class="dropdown-item" href="#"><i
-                                    class="ri-mic-off-line align-bottom text-muted me-2"></i>
+                            <a class="dropdown-item" href="#"><i class="ri-mic-off-line align-bottom text-muted me-2"></i>
                                 Muted</a>
-                            <a class="dropdown-item" href="#"><i
-                                    class="ri-delete-bin-5-line align-bottom text-muted me-2"></i>
+                            <a class="dropdown-item" href="#"><i class="ri-delete-bin-5-line align-bottom text-muted me-2"></i>
                                 Delete</a>
                         </div>
                     </div>
@@ -869,28 +797,20 @@
                                                 <p class="mb-0 ctext-content">Good morning 😊</p>
                                             </div>
                                             <div class="dropdown align-self-start message-box-drop">
-                                                <a class="dropdown-toggle" href="#" role="button"
-                                                    data-bs-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">
+                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <i class="ri-more-2-fill"></i>
                                                 </a>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-reply-line me-2 text-muted align-bottom"></i>Reply</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-share-line me-2 text-muted align-bottom"></i>Forward</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-file-copy-line me-2 text-muted align-bottom"></i>Copy</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-bookmark-line me-2 text-muted align-bottom"></i>Bookmark</a>
-                                                    <a class="dropdown-item delete-item" href="#"><i
-                                                            class="ri-delete-bin-5-line me-2 text-muted align-bottom"></i>Delete</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-reply-line me-2 text-muted align-bottom"></i>Reply</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-share-line me-2 text-muted align-bottom"></i>Forward</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-file-copy-line me-2 text-muted align-bottom"></i>Copy</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-bookmark-line me-2 text-muted align-bottom"></i>Bookmark</a>
+                                                    <a class="dropdown-item delete-item" href="#"><i class="ri-delete-bin-5-line me-2 text-muted align-bottom"></i>Delete</a>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="conversation-name"><small class="text-muted time">09:07 am</small>
-                                            <span class="text-success check-message-icon"><i
-                                                    class="ri-check-double-line align-bottom"></i></span>
+                                            <span class="text-success check-message-icon"><i class="ri-check-double-line align-bottom"></i></span>
                                         </div>
                                     </div>
                                 </div>
@@ -906,28 +826,20 @@
                                                     What about our next meeting?</p>
                                             </div>
                                             <div class="dropdown align-self-start message-box-drop">
-                                                <a class="dropdown-toggle" href="#" role="button"
-                                                    data-bs-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">
+                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <i class="ri-more-2-fill"></i>
                                                 </a>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-reply-line me-2 text-muted align-bottom"></i>Reply</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-share-line me-2 text-muted align-bottom"></i>Forward</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-file-copy-line me-2 text-muted align-bottom"></i>Copy</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-bookmark-line me-2 text-muted align-bottom"></i>Bookmark</a>
-                                                    <a class="dropdown-item delete-item" href="#"><i
-                                                            class="ri-delete-bin-5-line me-2 text-muted align-bottom"></i>Delete</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-reply-line me-2 text-muted align-bottom"></i>Reply</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-share-line me-2 text-muted align-bottom"></i>Forward</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-file-copy-line me-2 text-muted align-bottom"></i>Copy</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-bookmark-line me-2 text-muted align-bottom"></i>Bookmark</a>
+                                                    <a class="dropdown-item delete-item" href="#"><i class="ri-delete-bin-5-line me-2 text-muted align-bottom"></i>Delete</a>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="conversation-name"><small class="text-muted time">09:08 am</small>
-                                            <span class="text-success check-message-icon"><i
-                                                    class="ri-check-double-line align-bottom"></i></span>
+                                            <span class="text-success check-message-icon"><i class="ri-check-double-line align-bottom"></i></span>
                                         </div>
                                     </div>
                                 </div>
@@ -946,22 +858,15 @@
                                                     Our next meeting tomorrow at 10.00 AM</p>
                                             </div>
                                             <div class="dropdown align-self-start message-box-drop">
-                                                <a class="dropdown-toggle" href="#" role="button"
-                                                    data-bs-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">
+                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <i class="ri-more-2-fill"></i>
                                                 </a>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-reply-line me-2 text-muted align-bottom"></i>Reply</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-share-line me-2 text-muted align-bottom"></i>Forward</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-file-copy-line me-2 text-muted align-bottom"></i>Copy</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-bookmark-line me-2 text-muted align-bottom"></i>Bookmark</a>
-                                                    <a class="dropdown-item delete-item" href="#"><i
-                                                            class="ri-delete-bin-5-line me-2 text-muted align-bottom"></i>Delete</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-reply-line me-2 text-muted align-bottom"></i>Reply</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-share-line me-2 text-muted align-bottom"></i>Forward</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-file-copy-line me-2 text-muted align-bottom"></i>Copy</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-bookmark-line me-2 text-muted align-bottom"></i>Bookmark</a>
+                                                    <a class="dropdown-item delete-item" href="#"><i class="ri-delete-bin-5-line me-2 text-muted align-bottom"></i>Delete</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -972,28 +877,20 @@
                                                     buy some presents for my parents 🎁.</p>
                                             </div>
                                             <div class="dropdown align-self-start message-box-drop">
-                                                <a class="dropdown-toggle" href="#" role="button"
-                                                    data-bs-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">
+                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <i class="ri-more-2-fill"></i>
                                                 </a>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-reply-line me-2 text-muted align-bottom"></i>Reply</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-share-line me-2 text-muted align-bottom"></i>Forward</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-file-copy-line me-2 text-muted align-bottom"></i>Copy</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-bookmark-line me-2 text-muted align-bottom"></i>Bookmark</a>
-                                                    <a class="dropdown-item delete-item" href="#"><i
-                                                            class="ri-delete-bin-5-line me-2 text-muted align-bottom"></i>Delete</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-reply-line me-2 text-muted align-bottom"></i>Reply</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-share-line me-2 text-muted align-bottom"></i>Forward</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-file-copy-line me-2 text-muted align-bottom"></i>Copy</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-bookmark-line me-2 text-muted align-bottom"></i>Bookmark</a>
+                                                    <a class="dropdown-item delete-item" href="#"><i class="ri-delete-bin-5-line me-2 text-muted align-bottom"></i>Delete</a>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="conversation-name"><small class="text-muted time">09:10 am</small>
-                                            <span class="text-success check-message-icon"><i
-                                                    class="ri-check-double-line align-bottom"></i></span>
+                                            <span class="text-success check-message-icon"><i class="ri-check-double-line align-bottom"></i></span>
                                         </div>
                                     </div>
                                 </div>
@@ -1008,28 +905,20 @@
                                                 <p class="mb-0 ctext-content">Wow that's great</p>
                                             </div>
                                             <div class="dropdown align-self-start message-box-drop">
-                                                <a class="dropdown-toggle" href="#" role="button"
-                                                    data-bs-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">
+                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <i class="ri-more-2-fill"></i>
                                                 </a>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-reply-line me-2 text-muted align-bottom"></i>Reply</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-share-line me-2 text-muted align-bottom"></i>Forward</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-file-copy-line me-2 text-muted align-bottom"></i>Copy</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="ri-bookmark-line me-2 text-muted align-bottom"></i>Bookmark</a>
-                                                    <a class="dropdown-item delete-item" href="#"><i
-                                                            class="ri-delete-bin-5-line me-2 text-muted align-bottom"></i>Delete</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-reply-line me-2 text-muted align-bottom"></i>Reply</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-share-line me-2 text-muted align-bottom"></i>Forward</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-file-copy-line me-2 text-muted align-bottom"></i>Copy</a>
+                                                    <a class="dropdown-item" href="#"><i class="ri-bookmark-line me-2 text-muted align-bottom"></i>Bookmark</a>
+                                                    <a class="dropdown-item delete-item" href="#"><i class="ri-delete-bin-5-line me-2 text-muted align-bottom"></i>Delete</a>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="conversation-name"><small class="text-muted time">09:12 am</small>
-                                            <span class="text-success check-message-icon"><i
-                                                    class="ri-check-double-line align-bottom"></i></span>
+                                            <span class="text-success check-message-icon"><i class="ri-check-double-line align-bottom"></i></span>
                                         </div>
                                     </div>
                                 </div>
@@ -1046,33 +935,22 @@
                                             <div class="message-img mb-0">
                                                 <div class="message-img-list">
                                                     <div>
-                                                        <a class="popup-img d-inline-block"
-                                                            href="<?php echo e(URL::asset('assets/images/small/img-1.jpg')); ?>">
-                                                            <img src="<?php echo e(URL::asset('assets/images/small/img-1.jpg')); ?>"
-                                                                alt="" class="rounded border">
+                                                        <a class="popup-img d-inline-block" href="<?php echo e(URL::asset('assets/images/small/img-1.jpg')); ?>">
+                                                            <img src="<?php echo e(URL::asset('assets/images/small/img-1.jpg')); ?>" alt="" class="rounded border">
                                                         </a>
                                                     </div>
                                                     <div class="message-img-link">
                                                         <ul class="list-inline mb-0">
                                                             <li class="list-inline-item dropdown">
-                                                                <a class="dropdown-toggle" href="#" role="button"
-                                                                    data-bs-toggle="dropdown" aria-haspopup="true"
-                                                                    aria-expanded="false">
+                                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                     <i class="ri-more-fill"></i>
                                                                 </a>
                                                                 <div class="dropdown-menu">
-                                                                    <a class="dropdown-item"
-                                                                        href="<?php echo e(URL::asset('assets/images/small/img-1.jpg')); ?>"
-                                                                        download=""><i
-                                                                            class="ri-download-2-line me-2 text-muted align-bottom"></i>Download</a>
-                                                                    <a class="dropdown-item" href="#"><i
-                                                                            class="ri-reply-line me-2 text-muted align-bottom"></i>Reply</a>
-                                                                    <a class="dropdown-item" href="#"><i
-                                                                            class="ri-share-line me-2 text-muted align-bottom"></i>Forward</a>
-                                                                    <a class="dropdown-item" href="#"><i
-                                                                            class="ri-bookmark-line me-2 text-muted align-bottom"></i>Bookmark</a>
-                                                                    <a class="dropdown-item delete-item" href="#"><i
-                                                                            class="ri-delete-bin-5-line me-2 text-muted align-bottom"></i>Delete</a>
+                                                                    <a class="dropdown-item" href="<?php echo e(URL::asset('assets/images/small/img-1.jpg')); ?>" download=""><i class="ri-download-2-line me-2 text-muted align-bottom"></i>Download</a>
+                                                                    <a class="dropdown-item" href="#"><i class="ri-reply-line me-2 text-muted align-bottom"></i>Reply</a>
+                                                                    <a class="dropdown-item" href="#"><i class="ri-share-line me-2 text-muted align-bottom"></i>Forward</a>
+                                                                    <a class="dropdown-item" href="#"><i class="ri-bookmark-line me-2 text-muted align-bottom"></i>Bookmark</a>
+                                                                    <a class="dropdown-item delete-item" href="#"><i class="ri-delete-bin-5-line me-2 text-muted align-bottom"></i>Delete</a>
                                                                 </div>
                                                             </li>
                                                         </ul>
@@ -1081,33 +959,22 @@
 
                                                 <div class="message-img-list">
                                                     <div>
-                                                        <a class="popup-img d-inline-block"
-                                                            href="<?php echo e(URL::asset('assets/images/small/img-2.jpg')); ?>">
-                                                            <img src="<?php echo e(URL::asset('assets/images/small/img-2.jpg')); ?>"
-                                                                alt="" class="rounded border">
+                                                        <a class="popup-img d-inline-block" href="<?php echo e(URL::asset('assets/images/small/img-2.jpg')); ?>">
+                                                            <img src="<?php echo e(URL::asset('assets/images/small/img-2.jpg')); ?>" alt="" class="rounded border">
                                                         </a>
                                                     </div>
                                                     <div class="message-img-link">
                                                         <ul class="list-inline mb-0">
                                                             <li class="list-inline-item dropdown">
-                                                                <a class="dropdown-toggle" href="#" role="button"
-                                                                    data-bs-toggle="dropdown" aria-haspopup="true"
-                                                                    aria-expanded="false">
+                                                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                     <i class="ri-more-fill"></i>
                                                                 </a>
                                                                 <div class="dropdown-menu">
-                                                                    <a class="dropdown-item"
-                                                                        href="<?php echo e(URL::asset('assets/images/small/img-2.jpg')); ?>"
-                                                                        download=""><i
-                                                                            class="ri-download-2-line me-2 text-muted align-bottom"></i>Download</a>
-                                                                    <a class="dropdown-item" href="#"><i
-                                                                            class="ri-reply-line me-2 text-muted align-bottom"></i>Reply</a>
-                                                                    <a class="dropdown-item" href="#"><i
-                                                                            class="ri-share-line me-2 text-muted align-bottom"></i>Forward</a>
-                                                                    <a class="dropdown-item" href="#"><i
-                                                                            class="ri-bookmark-line me-2 text-muted align-bottom"></i>Bookmark</a>
-                                                                    <a class="dropdown-item delete-item" href="#"><i
-                                                                            class="ri-delete-bin-5-line me-2 text-muted align-bottom"></i>Delete</a>
+                                                                    <a class="dropdown-item" href="<?php echo e(URL::asset('assets/images/small/img-2.jpg')); ?>" download=""><i class="ri-download-2-line me-2 text-muted align-bottom"></i>Download</a>
+                                                                    <a class="dropdown-item" href="#"><i class="ri-reply-line me-2 text-muted align-bottom"></i>Reply</a>
+                                                                    <a class="dropdown-item" href="#"><i class="ri-share-line me-2 text-muted align-bottom"></i>Forward</a>
+                                                                    <a class="dropdown-item" href="#"><i class="ri-bookmark-line me-2 text-muted align-bottom"></i>Bookmark</a>
+                                                                    <a class="dropdown-item delete-item" href="#"><i class="ri-delete-bin-5-line me-2 text-muted align-bottom"></i>Delete</a>
                                                                 </div>
                                                             </li>
                                                         </ul>
@@ -1117,8 +984,7 @@
                                         </div>
 
                                         <div class="conversation-name"><small class="text-muted time">09:30 am</small>
-                                            <span class="text-success check-message-icon"><i
-                                                    class="ri-check-double-line align-bottom"></i></span>
+                                            <span class="text-success check-message-icon"><i class="ri-check-double-line align-bottom"></i></span>
                                         </div>
                                     </div>
                                 </div>
@@ -1131,14 +997,11 @@
                     <div class="row g-2 mx-3 mt-2 mb-3">
                         <div class="col">
                             <div class="position-relative">
-                                <input type="text" class="form-control border-light bg-light"
-                                    placeholder="Enter Message...">
+                                <input type="text" class="form-control border-light bg-light" placeholder="Enter Message...">
                             </div>
                         </div><!-- end col -->
                         <div class="col-auto">
-                            <button type="submit" class="btn btn-info"><span
-                                    class="d-none d-sm-inline-block me-2">Send</span> <i
-                                    class="mdi mdi-send float-end"></i></button>
+                            <button type="submit" class="btn btn-info"><span class="d-none d-sm-inline-block me-2">Send</span> <i class="mdi mdi-send float-end"></i></button>
                         </div><!-- end col -->
                     </div><!-- end row -->
                 </div>
@@ -1152,8 +1015,7 @@
                 <h4 class="card-title mb-0 flex-grow-1">Projects Status</h4>
                 <div class="flex-shrink-0">
                     <div class="dropdown card-header-dropdown">
-                        <a class="dropdown-btn text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
+                        <a class="dropdown-btn text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             All Time <i class="mdi mdi-chevron-down ms-1"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
@@ -1167,23 +1029,20 @@
             </div><!-- end card header -->
 
             <div class="card-body">
-                <div id="prjects-status" data-colors='["--vz-success", "--vz-primary", "--vz-warning", "--vz-danger"]'
-                    class="apex-charts" dir="ltr"></div>
+                <div id="prjects-status" data-colors='["--vz-success", "--vz-primary", "--vz-warning", "--vz-danger"]' class="apex-charts" dir="ltr"></div>
                 <div class="mt-3">
                     <div class="d-flex justify-content-center align-items-center mb-4">
                         <h2 class="me-3 ff-secondary mb-0">258</h2>
                         <div>
                             <p class="text-muted mb-0">Total Projects</p>
                             <p class="text-success fw-medium mb-0">
-                                <span class="badge badge-soft-success p-1 rounded-circle"><i
-                                        class="ri-arrow-right-up-line"></i></span> +3 New
+                                <span class="badge badge-soft-success p-1 rounded-circle"><i class="ri-arrow-right-up-line"></i></span> +3 New
                             </p>
                         </div>
                     </div>
 
                     <div class="d-flex justify-content-between border-bottom border-bottom-dashed py-2">
-                        <p class="fw-medium mb-0"><i
-                                class="ri-checkbox-blank-circle-fill text-success align-middle me-2"></i>
+                        <p class="fw-medium mb-0"><i class="ri-checkbox-blank-circle-fill text-success align-middle me-2"></i>
                             Completed</p>
                         <div>
                             <span class="text-muted pe-5">125 Projects</span>
@@ -1191,8 +1050,7 @@
                         </div>
                     </div><!-- end -->
                     <div class="d-flex justify-content-between border-bottom border-bottom-dashed py-2">
-                        <p class="fw-medium mb-0"><i
-                                class="ri-checkbox-blank-circle-fill text-primary align-middle me-2"></i>
+                        <p class="fw-medium mb-0"><i class="ri-checkbox-blank-circle-fill text-primary align-middle me-2"></i>
                             In Progress</p>
                         <div>
                             <span class="text-muted pe-5">42 Projects</span>
@@ -1200,8 +1058,7 @@
                         </div>
                     </div><!-- end -->
                     <div class="d-flex justify-content-between border-bottom border-bottom-dashed py-2">
-                        <p class="fw-medium mb-0"><i
-                                class="ri-checkbox-blank-circle-fill text-warning align-middle me-2"></i>
+                        <p class="fw-medium mb-0"><i class="ri-checkbox-blank-circle-fill text-warning align-middle me-2"></i>
                             Yet to Start</p>
                         <div>
                             <span class="text-muted pe-5">58 Projects</span>
@@ -1209,8 +1066,7 @@
                         </div>
                     </div><!-- end -->
                     <div class="d-flex justify-content-between py-2">
-                        <p class="fw-medium mb-0"><i
-                                class="ri-checkbox-blank-circle-fill text-danger align-middle me-2"></i>
+                        <p class="fw-medium mb-0"><i class="ri-checkbox-blank-circle-fill text-danger align-middle me-2"></i>
                             Cancelled</p>
                         <div>
                             <span class="text-muted pe-5">89 Projects</span>

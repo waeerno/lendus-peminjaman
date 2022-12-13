@@ -34,9 +34,9 @@
         <tr>
             <th scope="row">{{ $loop->index +1 }}</th>
             <td>
-                <h6 class="text-primary mb-0">{{ $item->user->name }}</h6>
+                <h6 class="text-primary mb-0">{{ $item->client->nama }}</h6>
                 <span class="text-muted">
-                    {{ $item->user->unit->nama }}
+                    {{ $item->client->unit->nama }}
                 </span>
             <td>{{ $item->asset->nama }}</td>
             <td>{{ $item->jumlah }}</td>

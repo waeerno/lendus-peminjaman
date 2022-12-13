@@ -33,9 +33,9 @@
         <tr>
             <th scope="row"><?php echo e($loop->index +1); ?></th>
             <td>
-                <h6 class="text-primary mb-0"><?php echo e($item->user->name); ?></h6>
+                <h6 class="text-primary mb-0"><?php echo e($item->client->nama); ?></h6>
                 <span class="text-muted">
-                    <?php echo e($item->user->unit->nama); ?>
+                    <?php echo e($item->client->unit->nama); ?>
 
                 </span>
             <td><?php echo e($item->asset->nama); ?></td>
