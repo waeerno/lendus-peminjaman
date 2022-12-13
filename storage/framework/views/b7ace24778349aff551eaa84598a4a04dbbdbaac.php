@@ -28,8 +28,8 @@ Login
 
                         <div class="card-body p-4">
                             <div class="text-center mt-2">
-                                <h5 class="text-primary">Welcome Back !</h5>
-                                <p class="text-muted">Sign in to continue to Lend-us.</p>
+                                <h5 class="text-primary">Welcome Back!</h5>
+                                <p class="text-muted">Sign in to continue to Lend-US.</p>
                             </div>
                             <div class="p-2 mt-4">
                                 <form action="<?php echo e(route('login')); ?>" method="POST">
@@ -43,7 +43,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('email', 'admin@themesbrand.com')); ?>" id="username" name="email" placeholder="Enter username">
+unset($__errorArgs, $__bag); ?>" id="username" name="email" placeholder="Enter username">
                                         <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -59,9 +59,7 @@ unset($__errorArgs, $__bag); ?>
                                     </div>
 
                                     <div class="mb-3">
-                                        <div class="float-end">
-                                            <a href="auth-pass-reset-basic" class="text-muted">Forgot password?</a>
-                                        </div>
+                                        
                                         <label class="form-label" for="password-input">Password</label>
                                         <div class="position-relative auth-pass-inputgroup mb-3">
                                             <input type="password" class="form-control pe-5 password-input <?php $__errorArgs = ['password'];
@@ -71,7 +69,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" name="password" placeholder="Enter password" id="password-input" value="123456">
+unset($__errorArgs, $__bag); ?>" name="password" placeholder="Enter password" id="password-input">
                                             <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                             <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');

@@ -122,7 +122,6 @@
                                 </div>
                                 @enderror
                             </div>
-
                         </div>
 
                         @hasrole('Operator')
@@ -139,7 +138,6 @@
                                     </div>
                                     @enderror
                                 </div>
-
                             </div>
 
                             @hasrole('Operator')
@@ -156,7 +154,6 @@
                                         </div>
                                         @enderror
                                     </div>
-
                                 </div>
 
 
