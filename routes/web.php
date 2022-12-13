@@ -7,8 +7,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\OperatorController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UnitController;
@@ -42,6 +44,8 @@ Route::middleware('auth')->group(function () {
     Route::get('permission', PermissionController::class)->name('permission');
     Route::get('riwayat', RiwayatController::class)->name('riwayat.index');
     Route::resource('role', RoleController::class)->except('show');
+    Route::resource('profile', ProfileController::class)->except('show', 'create', 'strore', 'edit', 'destroy');
+    Route::resource('sandi', PasswordController::class)->only('update');
 });
 
 Route::middleware('auth')->name('pengguna.')->group(function () {
@@ -51,14 +55,3 @@ Route::middleware('auth')->name('pengguna.')->group(function () {
     Route::get('admin/{admin}/password', [AdminController::class, 'password'])->name('admin.password');
     Route::resource('client', ClientController::class)->except('show');
 });
-Route::put('operator/changePassword', [OperatorController::class, 'changePassword'])->name('operator.password');
-Route::put('admin/changePassword/', [AdminController::class, 'changePassword'])->name('admin.password');
-
-// Route::get('getJumlah/{id}', function ($id) {
-//     $course = Asset::where('id', $id)->get();
-//     return response()->json($course);
-// });
-// Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');
-//Update User Details
-// Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
-// Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatePassword');

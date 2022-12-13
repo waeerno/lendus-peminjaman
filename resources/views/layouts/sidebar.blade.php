@@ -5,19 +5,19 @@
         <!-- Dark Logo-->
         <a href="index" class="logo logo-dark">
             <span class="logo-sm">
-                <img src="{{ URL::asset('assets/images/logo-sm.png') }}" alt="" height="22">
+                <img src="{{ URL::asset('assets/images/logo-sm.png') }}" alt="" height="42">
             </span>
             <span class="logo-lg">
-                <img src="{{ URL::asset('assets/images/logo-dark.png') }}" alt="" height="17">
+                <img src="{{ URL::asset('assets/images/logo-dark.png') }}" alt="" height="37">
             </span>
         </a>
         <!-- Light Logo-->
         <a href="index" class="logo logo-light">
             <span class="logo-sm">
-                <img src="{{ URL::asset('assets/images/logo-sm.png') }}" alt="" height="22">
+                <img src="{{ URL::asset('assets/images/logo-sm.png') }}" alt="" height="42">
             </span>
             <span class="logo-lg">
-                <img src="{{ URL::asset('assets/images/logo-light.png') }}" alt="" height="17">
+                <img src="{{ URL::asset('assets/images/logo-light.png') }}" alt="" height="37">
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
@@ -75,7 +75,8 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link  {{ request()->routeIs('pengguna.*') ? 'text-primary' : '' }}" href="#sidebarPengguna" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarPengguna">
-                        <i class="bx bxs-data"></i> <span>Pengguna</span>
+                        <i class="bx bx-user-pin"></i> <span>Pengguna</span>
+
                     </a>
                     <div class="collapse menu-dropdown {{ request()->routeIs('pengguna.*') ? 'show' : '' }}" id="sidebarPengguna">
 
@@ -101,20 +102,20 @@
                 <li class="menu-title"><span>Setting</span></li>
 
                 <li class="nav-item">
-                    <a href="{{ route('dashboard') }}" class="nav-link {{ request()->routeIs('dashboard') ? 'text-primary' : '' }}" role="button" aria-expanded="true" aria-controls="sidebarDashboards">
-                        <i class="ri-dashboard-2-line"></i> <span>Profile</span>
+                    <a href="{{ route('profile.index') }}" class="nav-link {{ request()->routeIs('profile.*') ? 'text-primary' : '' }}" role="button" aria-expanded="true" aria-controls="sidebarDashboards">
+                        <i class="ri-folder-user-line"></i> <span>Profile</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="{{ route('role.index') }}" class="nav-link {{ request()->routeIs('role.*') ? 'text-primary' : '' }}" role="button" aria-expanded="true" aria-controls="sidebarDashboards">
-                        <i class="ri-dashboard-2-line"></i> <span>Role</span>
+                        <i class="ri-user-settings-line"></i> <span>Role</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="{{ route('permission') }}" class="nav-link {{ request()->routeIs('permission') ? 'text-primary' : '' }}" role="button" aria-expanded="true" aria-controls="sidebarDashboards">
-                        <i class="ri-dashboard-2-line"></i> <span>Permission</span>
+                        <i class="ri-list-settings-fill"></i> <span>Permission</span>
                     </a>
                 </li>
 

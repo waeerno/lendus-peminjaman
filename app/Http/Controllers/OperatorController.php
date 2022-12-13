@@ -94,7 +94,7 @@ class OperatorController extends Controller
      */
     public function changePassword(Request $request)
     {
-        dd($request->all);
+        // dd($request->all);
         User::findOrFail(Auth::user()->id)->update([
             'password' => Hash::make($request->new_password)
         ]);
