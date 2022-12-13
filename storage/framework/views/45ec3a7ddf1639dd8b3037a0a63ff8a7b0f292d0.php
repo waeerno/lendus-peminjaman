@@ -21,7 +21,8 @@
                                 <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
                                     Frekuensi Peminjaman</p>
                                 <div class="d-flex align-items-center mb-3">
-                                    <h4 class="fs-4 flex-grow-1 mb-0"><span class="counter-value" data-target="825">0</span></h4>
+                                    <h4 class="fs-4 flex-grow-1 mb-0"><span class="counter-value" data-target="<?php echo e($frekuensi_peminjaman); ?>">0</span></h4>
+
                                     <span class="badge badge-soft-danger fs-12"><i class="ri-arrow-down-s-line fs-13 align-middle me-1"></i>5.02
                                         %</span>
                                 </div>
@@ -42,13 +43,12 @@
                                 </span>
                             </div>
                             <div class="flex-grow-1 ms-3">
-                                <p class="text-uppercase fw-medium text-muted mb-3">New Leads</p>
+                                <p class="text-uppercase fw-medium text-muted mb-3">Asset Aktif</p>
                                 <div class="d-flex align-items-center mb-3">
-                                    <h4 class="fs-4 flex-grow-1 mb-0"><span class="counter-value" data-target="7522">0</span></h4>
-                                    <span class="badge badge-soft-success fs-12"><i class="ri-arrow-up-s-line fs-13 align-middle me-1"></i>3.58
-                                        %</span>
+                                    <h4 class="fs-4 flex-grow-1 mb-0"><span class="counter-value" data-target="<?php echo e($asset_tersedia); ?>">0</span></h4>
                                 </div>
-                                <p class="text-muted mb-0">Leads this month</p>
+                                <br>
+
                             </div>
                         </div>
                     </div><!-- end card body -->
@@ -66,13 +66,11 @@
                             </div>
                             <div class="flex-grow-1 overflow-hidden ms-3">
                                 <p class="text-uppercase fw-medium text-muted text-truncate mb-3">
-                                    Total Hours</p>
+                                    Kategori</p>
                                 <div class="d-flex align-items-center mb-3">
-                                    <h4 class="fs-4 flex-grow-1 mb-0"><span class="counter-value" data-target="168">0</span>h <span class="counter-value" data-target="40">0</span>m</h4>
-                                    <span class="badge badge-soft-danger fs-12"><i class="ri-arrow-down-s-line fs-13 align-middle me-1"></i>10.35
-                                        %</span>
+                                    <h4 class="fs-4 flex-grow-1 mb-0"><span class="counter-value" data-target="<?php echo e($kategori); ?>">0</span></h4>
                                 </div>
-                                <p class="text-muted text-truncate mb-0">Work this month</p>
+                                <p class="text-muted text-truncate mb-0">Jenis barang tersedia</p>
                             </div>
                         </div>
                     </div><!-- end card body -->
@@ -84,50 +82,39 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header border-0 align-items-center d-flex">
-                        <h4 class="card-title mb-0 flex-grow-1">Projects Overview</h4>
-                        <div>
-                            <button type="button" class="btn btn-soft-secondary btn-sm">
-                                ALL
-                            </button>
-                            <button type="button" class="btn btn-soft-secondary btn-sm">
-                                1M
-                            </button>
-                            <button type="button" class="btn btn-soft-secondary btn-sm">
-                                6M
-                            </button>
-                            <button type="button" class="btn btn-soft-primary btn-sm">
-                                1Y
-                            </button>
-                        </div>
+                        <h4 class="card-title mb-0 flex-grow-1">Ringkasan Transaksi</h4>
+
                     </div><!-- end card header -->
 
                     <div class="card-header p-0 border-0 bg-soft-light">
                         <div class="row g-0 text-center">
                             <div class="col-6 col-sm-3">
                                 <div class="p-3 border border-dashed border-start-0">
-                                    <h5 class="mb-1"><span class="counter-value" data-target="9851">0</span></h5>
-                                    <p class="text-muted mb-0">Number of Projects</p>
+                                    <h5 class="mb-1"><span class="counter-value" data-target="<?php echo e($total_peminjaman); ?>">0</span></h5>
+
+                                    <p class="text-muted mb-0">Total Peminjaman</p>
                                 </div>
                             </div>
                             <!--end col-->
                             <div class="col-6 col-sm-3">
                                 <div class="p-3 border border-dashed border-start-0">
-                                    <h5 class="mb-1"><span class="counter-value" data-target="1026">0</span></h5>
-                                    <p class="text-muted mb-0">Active Projects</p>
+                                    <h5 class="mb-1"><span class="counter-value" data-target="<?php echo e($total_asset); ?>">0</span></h5>
+                                    <p class="text-muted mb-0">Total Asset</p>
                                 </div>
                             </div>
                             <!--end col-->
                             <div class="col-6 col-sm-3">
                                 <div class="p-3 border border-dashed border-start-0">
-                                    <h5 class="mb-1">$<span class="counter-value" data-target="228.89">0</span>k</h5>
-                                    <p class="text-muted mb-0">Revenue</p>
+                                    <h5 class="mb-1"><span class="counter-value" data-target="<?php echo e($kontribusi_unit); ?>">0</span> Unit</h5>
+                                    <p class="text-muted mb-0">Unit</p>
                                 </div>
                             </div>
                             <!--end col-->
                             <div class="col-6 col-sm-3">
                                 <div class="p-3 border border-dashed border-start-0 border-end-0">
-                                    <h5 class="mb-1 text-success"><span class="counter-value" data-target="10589">0</span>h</h5>
-                                    <p class="text-muted mb-0">Working Hours</p>
+                                    <h5 class="mb-1 text-success"><span class="counter-value" data-target="<?php echo e($total_pengguna); ?>">0</span> Pengguna</h5>
+
+                                    <p class="text-muted mb-0">Pengguna</p>
                                 </div>
                             </div>
                             <!--end col-->

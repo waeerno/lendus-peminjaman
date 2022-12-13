@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Asset;
+use App\Models\Client;
+use App\Models\Kategori;
 use App\Models\Peminjaman;
+use App\Models\Unit;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -25,11 +30,18 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $a = Peminjaman::where('mulai_pakai', now()->month)->count();
-        dd($a);
+        // $a =
+
 
         return view('pages.dashboard.index', [
-            'frekuensi_peminjaman' => $a,
+            'frekuensi_peminjaman' => Peminjaman::whereMonth('created_at', now()->month)->count(),
+            'asset_tersedia'       => Asset::where('status', 1)->count(),
+            'kategori'             => Kategori::count(),
+            'kontribusi_unit'      => Unit::count(),
+            'total_peminjaman'     => Peminjaman::where('keputusan', 1)->count(),
+            'total_asset'          => Asset::count(),
+            'total_pengguna'       => User::count() + Client::count(),
+
         ]);
     }
 }

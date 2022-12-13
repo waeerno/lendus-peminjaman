@@ -72,7 +72,7 @@
                             <label for="fullnameInput" class="form-label">Keputusan</label>
                             <select class="form-control @error('keputusan') is-invalid @enderror" name="keputusan" id="keputusan" name="keputusan" required>
                                 <option value="1">Terima</option>
-                                <option value="2">Tolak</option>
+                                <option value="0">Tolak</option>
                             </select>
 
                             @error('kategori_id')

@@ -15,14 +15,10 @@
         <nav class="navbar navbar-expand-lg navbar-landing navbar-light fixed-top" id="navbar">
             <div class="container">
                 <a class="navbar-brand" href="index">
-                    <img src="{{URL::asset('assets/images/logo-dark.png')}}" class="card-logo card-logo-dark"
-                        alt="logo dark" height="27">
-                    <img src="{{URL::asset('assets/images/logo-light.png')}}" class="card-logo card-logo-light"
-                        alt="logo light" height="27">
+                    <img src="{{URL::asset('assets/images/logo-dark.png')}}" class="card-logo card-logo-dark" alt="logo dark" height="27">
+                    <img src="{{URL::asset('assets/images/logo-light.png')}}" class="card-logo card-logo-light" alt="logo light" height="27">
                 </a>
-                <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="mdi mdi-menu"></i>
                 </button>
 
@@ -45,7 +41,7 @@
                     </ul>
 
                     <div class="">
-                        <a href="apps-nft-wallet" class="btn btn-primary">Login</a>
+                        <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
                     </div>
                 </div>
 
@@ -61,16 +57,13 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-sm-10">
                         <div class="text-center">
-                            <h1 class="display-4 fw-medium mb-4 lh-base text-white">Temukan Solusi Peminjaman <span
-                                    class="text-primary">dan Jelajahi Asset Kami</span></h1>
+                            <h1 class="display-4 fw-medium mb-4 lh-base text-white">Temukan Solusi Peminjaman <span class="text-primary">dan Jelajahi Asset Kami</span></h1>
                             <p class="lead text-white-50 lh-base mb-4 pb-2">kamu dapat melukan peminjaman dan pengurusan
                                 administrasi secara mudah di sini, dengan partner unit yang sudah terdaftar</p>
 
                             <div class="hstack gap-2 justify-content-center">
-                                <a href="apps-nft-create" class="btn btn-primary">Lakukan Peminjaman Sekarang <i
-                                        class="ri-arrow-right-line align-middle ms-1"></i></a>
-                                <a href="apps-nft-explore" class="btn btn-secondary">Jelajahi Terlebih Dahulu<i
-                                        class="ri-arrow-right-line align-middle ms-1"></i></a>
+                                <a href="apps-nft-create" class="btn btn-primary">Lakukan Peminjaman Sekarang <i class="ri-arrow-right-line align-middle ms-1"></i></a>
+                                <a href="{{ route('eksplore') }}" class="btn btn-secondary">Jelajahi Terlebih Dahulu<i class="ri-arrow-right-line align-middle ms-1"></i></a>
                             </div>
                         </div>
                     </div>
@@ -96,8 +89,7 @@
                     <div class="col-lg-4">
                         <div class="card text-center border shadow-none">
                             <div class="card-body py-5 px-4">
-                                <img src="{{URL::asset('assets/images/svg/crypto-icons/polis.svg')}}" alt="" height="55"
-                                    class="mb-3 pb-2">
+                                <img src="{{URL::asset('assets/images/svg/crypto-icons/polis.svg')}}" alt="" height="55" class="mb-3 pb-2">
                                 <h5>Bangunan/Ruang</h5>
                                 <p class="text-muted pb-1">Fasilitas berupa gedung atau ruangan yang mungkin anda
                                     butuhkan.</p>
@@ -107,8 +99,7 @@
                     <div class="col-lg-4">
                         <div class="card text-center border shadow-none">
                             <div class="card-body py-5 px-4">
-                                <img src="{{URL::asset('assets/images/svg/crypto-icons/lun.svg')}}" alt="" height="55"
-                                    class="mb-3 pb-2">
+                                <img src="{{URL::asset('assets/images/svg/crypto-icons/lun.svg')}}" alt="" height="55" class="mb-3 pb-2">
                                 <h5>Barang</h5>
                                 <p class="text-muted pb-1">Ketersedian barang yang mungkin anda perlukan untuk
                                     melengkapi kebutuhan.</p>
@@ -119,8 +110,7 @@
                     <div class="col-lg-4">
                         <div class="card text-center border shadow-none">
                             <div class="card-body py-5 px-4">
-                                <img src="{{URL::asset('assets/images/svg/crypto-icons/husd.svg')}}" alt="" height="55"
-                                    class="mb-3 pb-2">
+                                <img src="{{URL::asset('assets/images/svg/crypto-icons/husd.svg')}}" alt="" height="55" class="mb-3 pb-2">
                                 <h5>Fasilitas/Jasa</h5>
                                 <p class="text-muted pb-1">Jika anda membutuhkan dukungan fasilitas seperti layanan IT
                                     dan lain sebagainya.</p>
@@ -162,21 +152,17 @@
                     <div class="col-lg-4 product-item artwork crypto-card {{ $item->kategori->nama }}">
                         <div class="card explore-box card-animate">
                             <div class="bookmark-icon position-absolute top-0 end-0 p-2">
-                                <button type="button" class="btn btn-icon active" data-bs-toggle="button"
-                                    aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></button>
+                                <button type="button" class="btn btn-icon active" data-bs-toggle="button" aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></button>
                             </div>
                             <div class="explore-place-bid-img">
-                                <img src="{{URL::asset('assets/images/nft/img-03.jpg')}}" alt=""
-                                    class="card-img-top explore-img" />
+                                <img src="{{URL::asset('assets/images/nft/img-03.jpg')}}" alt="" class="card-img-top explore-img" />
                                 <div class="bg-overlay"></div>
                                 <div class="place-bid-btn">
-                                    <a href="#!" class="btn btn-primary"><i
-                                            class="ri-auction-fill align-bottom me-1"></i> Place Bid</a>
+                                    <a href="#!" class="btn btn-primary"><i class="ri-auction-fill align-bottom me-1"></i> Place Bid</a>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <p class="fw-medium mb-0 float-end"><i
-                                        class="mdi mdi-heart text-danger align-middle"></i> 19.29k </p>
+                                <p class="fw-medium mb-0 float-end"><i class="mdi mdi-heart text-danger align-middle"></i> 19.29k </p>
                                 <h5 class="mb-1"><a href="apps-nft-item-details">Creative Filtered Portrait</a></h5>
                                 <p class="text-muted mb-0">Photography</p>
                             </div>
@@ -196,21 +182,17 @@
                     <div class="col-lg-4 product-item artwork crypto-card 3d-style">
                         <div class="card explore-box card-animate">
                             <div class="bookmark-icon position-absolute top-0 end-0 p-2">
-                                <button type="button" class="btn btn-icon active" data-bs-toggle="button"
-                                    aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></button>
+                                <button type="button" class="btn btn-icon active" data-bs-toggle="button" aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></button>
                             </div>
                             <div class="explore-place-bid-img">
-                                <img src="{{URL::asset('assets/images/nft/img-03.jpg')}}" alt=""
-                                    class="card-img-top explore-img" />
+                                <img src="{{URL::asset('assets/images/nft/img-03.jpg')}}" alt="" class="card-img-top explore-img" />
                                 <div class="bg-overlay"></div>
                                 <div class="place-bid-btn">
-                                    <a href="#!" class="btn btn-primary"><i
-                                            class="ri-auction-fill align-bottom me-1"></i> Place Bid</a>
+                                    <a href="#!" class="btn btn-primary"><i class="ri-auction-fill align-bottom me-1"></i> Place Bid</a>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <p class="fw-medium mb-0 float-end"><i
-                                        class="mdi mdi-heart text-danger align-middle"></i> 19.29k </p>
+                                <p class="fw-medium mb-0 float-end"><i class="mdi mdi-heart text-danger align-middle"></i> 19.29k </p>
                                 <h5 class="mb-1"><a href="apps-nft-item-details">Creative Filtered Portrait</a></h5>
                                 <p class="text-muted mb-0">Photography</p>
                             </div>
@@ -228,21 +210,17 @@
                     <div class="col-lg-4 product-item music crypto-card games">
                         <div class="card explore-box card-animate">
                             <div class="bookmark-icon position-absolute top-0 end-0 p-2">
-                                <button type="button" class="btn btn-icon active" data-bs-toggle="button"
-                                    aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></button>
+                                <button type="button" class="btn btn-icon active" data-bs-toggle="button" aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></button>
                             </div>
                             <div class="explore-place-bid-img">
-                                <img src="{{URL::asset('assets/images/nft/img-02.jpg')}}" alt=""
-                                    class="card-img-top explore-img" />
+                                <img src="{{URL::asset('assets/images/nft/img-02.jpg')}}" alt="" class="card-img-top explore-img" />
                                 <div class="bg-overlay"></div>
                                 <div class="place-bid-btn">
-                                    <a href="#!" class="btn btn-primary"><i
-                                            class="ri-auction-fill align-bottom me-1"></i> Place Bid</a>
+                                    <a href="#!" class="btn btn-primary"><i class="ri-auction-fill align-bottom me-1"></i> Place Bid</a>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <p class="fw-medium mb-0 float-end"><i
-                                        class="mdi mdi-heart text-danger align-middle"></i> 23.63k </p>
+                                <p class="fw-medium mb-0 float-end"><i class="mdi mdi-heart text-danger align-middle"></i> 23.63k </p>
                                 <h5 class="mb-1"><a href="apps-nft-item-details">The Chirstoper</a></h5>
                                 <p class="text-muted mb-0">Music</p>
                             </div>
@@ -260,21 +238,17 @@
                     <div class="col-lg-4 product-item artwork music games">
                         <div class="card explore-box card-animate">
                             <div class="bookmark-icon position-absolute top-0 end-0 p-2">
-                                <button type="button" class="btn btn-icon active" data-bs-toggle="button"
-                                    aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></button>
+                                <button type="button" class="btn btn-icon active" data-bs-toggle="button" aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></button>
                             </div>
                             <div class="explore-place-bid-img">
-                                <img src="{{URL::asset('assets/images/nft/gif/img-4.gif')}}" alt=""
-                                    class="card-img-top explore-img" />
+                                <img src="{{URL::asset('assets/images/nft/gif/img-4.gif')}}" alt="" class="card-img-top explore-img" />
                                 <div class="bg-overlay"></div>
                                 <div class="place-bid-btn">
-                                    <a href="#!" class="btn btn-primary"><i
-                                            class="ri-auction-fill align-bottom me-1"></i> Place Bid</a>
+                                    <a href="#!" class="btn btn-primary"><i class="ri-auction-fill align-bottom me-1"></i> Place Bid</a>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <p class="fw-medium mb-0 float-end"><i
-                                        class="mdi mdi-heart text-danger align-middle"></i> 15.93k </p>
+                                <p class="fw-medium mb-0 float-end"><i class="mdi mdi-heart text-danger align-middle"></i> 15.93k </p>
                                 <h5 class="mb-1"><a href="apps-nft-item-details">Evolved Reality</a></h5>
                                 <p class="text-muted mb-0">Video</p>
                             </div>
@@ -292,21 +266,17 @@
                     <div class="col-lg-4 product-item crypto-card 3d-style">
                         <div class="card explore-box card-animate">
                             <div class="bookmark-icon position-absolute top-0 end-0 p-2">
-                                <button type="button" class="btn btn-icon active" data-bs-toggle="button"
-                                    aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></button>
+                                <button type="button" class="btn btn-icon active" data-bs-toggle="button" aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></button>
                             </div>
                             <div class="explore-place-bid-img">
-                                <img src="{{URL::asset('assets/images/nft/img-01.jpg')}}" alt=""
-                                    class="card-img-top explore-img" />
+                                <img src="{{URL::asset('assets/images/nft/img-01.jpg')}}" alt="" class="card-img-top explore-img" />
                                 <div class="bg-overlay"></div>
                                 <div class="place-bid-btn">
-                                    <a href="#!" class="btn btn-primary"><i
-                                            class="ri-auction-fill align-bottom me-1"></i> Place Bid</a>
+                                    <a href="#!" class="btn btn-primary"><i class="ri-auction-fill align-bottom me-1"></i> Place Bid</a>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <p class="fw-medium mb-0 float-end"><i
-                                        class="mdi mdi-heart text-danger align-middle"></i> 14.85k </p>
+                                <p class="fw-medium mb-0 float-end"><i class="mdi mdi-heart text-danger align-middle"></i> 14.85k </p>
                                 <h5 class="mb-1"><a href="apps-nft-item-details">Abstract Face Painting</a></h5>
                                 <p class="text-muted mb-0">Collectibles</p>
                             </div>
@@ -324,21 +294,17 @@
                     <div class="col-lg-4 product-item games music 3d-style">
                         <div class="card explore-box card-animate">
                             <div class="bookmark-icon position-absolute top-0 end-0 p-2">
-                                <button type="button" class="btn btn-icon active" data-bs-toggle="button"
-                                    aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></button>
+                                <button type="button" class="btn btn-icon active" data-bs-toggle="button" aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></button>
                             </div>
                             <div class="explore-place-bid-img">
-                                <img src="{{URL::asset('assets/images/nft/img-05.jpg')}}" alt=""
-                                    class="card-img-top explore-img" />
+                                <img src="{{URL::asset('assets/images/nft/img-05.jpg')}}" alt="" class="card-img-top explore-img" />
                                 <div class="bg-overlay"></div>
                                 <div class="place-bid-btn">
-                                    <a href="#!" class="btn btn-primary"><i
-                                            class="ri-auction-fill align-bottom me-1"></i> Place Bid</a>
+                                    <a href="#!" class="btn btn-primary"><i class="ri-auction-fill align-bottom me-1"></i> Place Bid</a>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <p class="fw-medium mb-0 float-end"><i
-                                        class="mdi mdi-heart text-danger align-middle"></i> 64.10k </p>
+                                <p class="fw-medium mb-0 float-end"><i class="mdi mdi-heart text-danger align-middle"></i> 64.10k </p>
                                 <h5 class="mb-1"><a href="apps-nft-item-details">Long-tailed Macaque</a></h5>
                                 <p class="text-muted mb-0">Artwork</p>
                             </div>
@@ -356,21 +322,17 @@
                     <div class="col-lg-4 product-item artwork music crypto-card">
                         <div class="card explore-box card-animate">
                             <div class="bookmark-icon position-absolute top-0 end-0 p-2">
-                                <button type="button" class="btn btn-icon active" data-bs-toggle="button"
-                                    aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></button>
+                                <button type="button" class="btn btn-icon active" data-bs-toggle="button" aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></button>
                             </div>
                             <div class="explore-place-bid-img">
-                                <img src="{{URL::asset('assets/images/nft/img-06.jpg')}}" alt=""
-                                    class="card-img-top explore-img" />
+                                <img src="{{URL::asset('assets/images/nft/img-06.jpg')}}" alt="" class="card-img-top explore-img" />
                                 <div class="bg-overlay"></div>
                                 <div class="place-bid-btn">
-                                    <a href="#!" class="btn btn-primary"><i
-                                            class="ri-auction-fill align-bottom me-1"></i> Place Bid</a>
+                                    <a href="#!" class="btn btn-primary"><i class="ri-auction-fill align-bottom me-1"></i> Place Bid</a>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <p class="fw-medium mb-0 float-end"><i
-                                        class="mdi mdi-heart text-danger align-middle"></i> 36.42k </p>
+                                <p class="fw-medium mb-0 float-end"><i class="mdi mdi-heart text-danger align-middle"></i> 36.42k </p>
                                 <h5 class="mb-1"><a href="apps-nft-item-details">Robotic Body Art</a></h5>
                                 <p class="text-muted mb-0">Artwork</p>
                             </div>
@@ -412,8 +374,7 @@
                         <div class="card explore-box card-animate border">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-3">
-                                    <img src="{{URL::asset('assets/images/nft/img-05.jpg')}}" alt=""
-                                        class="avatar-xs rounded-circle">
+                                    <img src="{{URL::asset('assets/images/nft/img-05.jpg')}}" alt="" class="avatar-xs rounded-circle">
                                     <div class="ms-2 flex-grow-1">
                                         <a href="#!">
                                             <h6 class="mb-0 fs-15">Nama Barang</h6>
@@ -422,8 +383,7 @@
                                     </div>
                                 </div>
                                 <div class="explore-place-bid-img overflow-hidden rounded">
-                                    <img src="{{URL::asset('assets/images/nft/img-05.jpg')}}" alt=""
-                                        class="explore-img w-100">
+                                    <img src="{{URL::asset('assets/images/nft/img-05.jpg')}}" alt="" class="explore-img w-100">
                                     <div class="bg-overlay"></div>
                                 </div>
                                 <div class="mt-3">
@@ -441,8 +401,7 @@
                         <div class="card explore-box card-animate border">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-3">
-                                    <img src="{{URL::asset('assets/images/nft/img-03.jpg')}}" alt=""
-                                        class="avatar-xs rounded-circle">
+                                    <img src="{{URL::asset('assets/images/nft/img-03.jpg')}}" alt="" class="avatar-xs rounded-circle">
                                     <div class="ms-2 flex-grow-1">
                                         <a href="#!">
                                             <h6 class="mb-0 fs-15">Nama Barang</h6>
@@ -451,8 +410,7 @@
                                     </div>
                                 </div>
                                 <div class="explore-place-bid-img overflow-hidden rounded">
-                                    <img src="{{URL::asset('assets/images/nft/img-03.jpg')}}" alt=""
-                                        class="explore-img w-100">
+                                    <img src="{{URL::asset('assets/images/nft/img-03.jpg')}}" alt="" class="explore-img w-100">
                                     <div class="bg-overlay"></div>
                                 </div>
                                 <div class="mt-3">
@@ -470,8 +428,7 @@
                         <div class="card explore-box card-animate border">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-3">
-                                    <img src="{{URL::asset('assets/images/nft/gif/img-1.gif')}}" alt=""
-                                        class="avatar-xs rounded-circle">
+                                    <img src="{{URL::asset('assets/images/nft/gif/img-1.gif')}}" alt="" class="avatar-xs rounded-circle">
                                     <div class="ms-2 flex-grow-1">
                                         <a href="#!">
                                             <h6 class="mb-0 fs-15">Nama Barang</h6>
@@ -480,8 +437,7 @@
                                     </div>
                                 </div>
                                 <div class="explore-place-bid-img overflow-hidden rounded">
-                                    <img src="{{URL::asset('assets/images/nft/gif/img-1.gif')}}" alt=""
-                                        class="explore-img w-100">
+                                    <img src="{{URL::asset('assets/images/nft/gif/img-1.gif')}}" alt="" class="explore-img w-100">
                                     <div class="bg-overlay"></div>
                                 </div>
                                 <div class="mt-3">
@@ -519,8 +475,7 @@
                             <div class="card-body">
                                 <div class="d-flex">
                                     <div class="flex-shink-0">
-                                        <img src="{{URL::asset('assets/images/nft/img-01.jpg')}}" alt=""
-                                            class="avatar-sm object-cover rounded" />
+                                        <img src="{{URL::asset('assets/images/nft/img-01.jpg')}}" alt="" class="avatar-sm object-cover rounded" />
                                     </div>
                                     <div class="ms-3 flex-grow-1">
                                         <a href="pages-profile">
