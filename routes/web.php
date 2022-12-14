@@ -9,6 +9,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\PeminjamanClientController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
@@ -31,7 +32,6 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 Route::get('/test', LandingController::class)->name('landing');
-Route::get('/eksplore', EksploreController::class)->name('eksplore');
 Route::resource('peminjaman-client', PeminjamanClientController::class);
 
 Route::get('/', DashboardController::class)->name('dashboard');

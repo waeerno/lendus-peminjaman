@@ -1,7 +1,5 @@
 <!doctype html>
-<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>" data-layout="vertical" data-topbar="light"
-    data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-layout-mode="dark" data-body-image="img-3"
-    data-preloader="disable">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>" <?php if(auth()->guard()->check()): ?> data-layout="vertical" <?php else: ?> data-layout="horizontal" <?php endif; ?> data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-layout-mode="dark" data-body-image="img-3" data-preloader="disable">
 
 <head>
     <meta charset="utf-8" />
@@ -20,7 +18,9 @@
 <!-- Begin page -->
 <div id="layout-wrapper">
     <?php echo $__env->make('layouts.topbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php if(auth()->guard()->check()): ?>
     <?php echo $__env->make('layouts.sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php endif; ?>
     <!-- ============================================================== -->
     <!-- Start right Content here -->
     <!-- ============================================================== -->

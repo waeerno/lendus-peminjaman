@@ -78,7 +78,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" name="keputusan" id="keputusan" name="keputusan" required>
                                 <option value="1">Terima</option>
-                                <option value="2">Tolak</option>
+                                <option value="0">Tolak</option>
                             </select>
 
                             <?php $__errorArgs = ['kategori_id'];

@@ -1,7 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-layout="vertical" data-topbar="light"
-    data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-layout-mode="dark" data-body-image="img-3"
-    data-preloader="disable">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @auth data-layout="vertical" @else data-layout="horizontal" @endauth data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-layout-mode="dark" data-body-image="img-3" data-preloader="disable">
 
 <head>
     <meta charset="utf-8" />
@@ -20,7 +18,9 @@
 <!-- Begin page -->
 <div id="layout-wrapper">
     @include('layouts.topbar')
+    @auth
     @include('layouts.sidebar')
+    @endauth
     <!-- ============================================================== -->
     <!-- Start right Content here -->
     <!-- ============================================================== -->

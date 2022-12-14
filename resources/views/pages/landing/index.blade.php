@@ -62,8 +62,7 @@
                                 administrasi secara mudah di sini, dengan partner unit yang sudah terdaftar</p>
 
                             <div class="hstack gap-2 justify-content-center">
-                                <a href="apps-nft-create" class="btn btn-primary">Lakukan Peminjaman Sekarang <i class="ri-arrow-right-line align-middle ms-1"></i></a>
-                                <a href="{{ route('eksplore') }}" class="btn btn-secondary">Jelajahi Terlebih Dahulu<i class="ri-arrow-right-line align-middle ms-1"></i></a>
+                                <a href="{{ route('peminjaman-client.index') }}" class="btn btn-primary">Lakukan Peminjaman Sekarang <i class="ri-arrow-right-line align-middle ms-1"></i></a>
                             </div>
                         </div>
                     </div>

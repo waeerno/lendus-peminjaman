@@ -93,6 +93,8 @@
                     </div>
 
                     <div class="col-md-6"></div>
+                    {{-- sengaja di bikin kosong biar surat turun ke line bawah --}}
+
                     <div class="col-md-6">
                         <label for="fullnameInput" class="form-label">Surat</label>
                         <input type="file" class="form-control  @error('surat') is-invalid @enderror" name="surat" value="{{ old('surat') }}">

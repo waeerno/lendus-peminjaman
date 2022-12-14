@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Asset;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 
 class PeminjamanClientController extends Controller
@@ -13,7 +15,10 @@ class PeminjamanClientController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.landing.create', [
+            'unit' => Unit::get(),
+            'asset' => Asset::get()
+        ]);
     }
 
     /**
@@ -34,7 +39,8 @@ class PeminjamanClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        dd($data);
     }
 
     /**
